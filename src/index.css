@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* <Container className="boxHasil">
+<Row>
+  <Col>
+    <label>Nama Mobil</label>
+    <Form.Label>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Ketik nama/tipe mobil"
+      ></input>
+    </Form.Label>
+  </Col>
+  <Col>
+    <label>Kategori</label>
+    <Form.Select>
+      <option>Masukan Kapasitas Mobil</option>
+      <option value="1">2 - 4 orang</option>
+      <option value="2">4 - 6 orang</option>
+      <option value="3">6 - 8 orang</option>
+    </Form.Select>
+  </Col>
+  <Col>
+    <label>Harga</label>
+    <Form.Select>
+      <option>Masukan Harga Sewa per Hari</option>
+      <option value="1"> Rp. 400.000 </option>
+      <option value="2">Rp. 400.000 - Rp. 600.000 </option>
+      <option value="3">Rp. 600.000 </option>
+    </Form.Select>
+  </Col>
+  <Col>
+    <label>Status</label>
+    <Form.Select>
+      <option>Di Sewa</option>
+      <option>Ready</option>
+    </Form.Select>
+  </Col>
+  <Col>
+    <div className="cari">
+      <Link to={`/Hasil/`} className="btn btn-primary">
+        Cari Mobil
+      </Link>
+    </div>
+  </Col>
+</Row>
+</Container> */

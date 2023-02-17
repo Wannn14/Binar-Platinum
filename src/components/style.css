@@ -1,0 +1,511 @@
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.header {
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #f1f3ff;
+  z-index: 9;
+}
+
+.logo {
+  width: 151px;
+  display: flex;
+  align-items: center;
+}
+.menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.menu a {
+  display: block;
+  margin: 16px;
+  text-decoration: none;
+  color: #000000;
+}
+.burger-icon {
+  display: none;
+}
+
+.top-sidebar {
+  display: none;
+}
+.sidebar {
+  flex: 1;
+}
+.overlay-bg {
+  display: none;
+}
+
+/* Banner */
+.hero-section {
+  background: #f1f3ff;
+  padding-top: 110px;
+  position: relative;
+  /* height: 1200px; */
+}
+.hero-content {
+  padding: 90px 0px;
+}
+.hero-content h1 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 75%;
+  margin-bottom: 15px;
+}
+.hero-content a {
+  background: #5cb85f;
+  border-color: #5cb85f;
+  border-radius: 2px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+.hero-thumbnail {
+  position: absolute;
+  width: 50%;
+  right: 0;
+  bottom: 0;
+}
+.hero-thumbnail img {
+  width: 80%;
+}
+
+/* Our service */
+.our-services {
+  padding-top: 110px;
+}
+
+.hapy-girl img {
+  display: flex;
+  margin: auto;
+  padding-top: 20px;
+}
+
+/* .deskripsi {
+  margin-left: 60px;
+} */
+
+.deskripsi h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  padding: 15px 0;
+  color: #000000;
+}
+
+.deskripsi p {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  width: 88%;
+  padding: 15px 0;
+  color: #000000;
+}
+
+.deskripsi ul {
+  display: flex;
+  align-items: center;
+}
+
+.deskripsi li {
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.deskripsi ul {
+  padding-left: 0;
+}
+
+/* why-us */
+.Why {
+  padding-top: 110px;
+}
+
+.Why-title {
+  margin-bottom: 55px;
+}
+
+.Why-title h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.Why-title p {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.Why-box img {
+  margin: 8px;
+  width: 20%;
+}
+
+.Why-box h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin: 15px 8px;
+}
+
+.Why-box p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+  color: #000000;
+  margin: 15px 8px;
+}
+
+/* testimonial */
+#Testi {
+  padding-top: 110px;
+}
+
+.testi-text1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.testi-text2 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.body-testi {
+  background-color: #f1f3ff;
+  border-radius: 5px;
+}
+
+.card_kiri {
+  width: 50%;
+  height: 50%;
+  margin: 50px 45px;
+}
+
+.card_kanan {
+  position: absolute;
+  bottom: 26px;
+  left: 175px;
+  right: 57px;
+}
+
+.card_kanan img {
+  margin-bottom: 15px;
+}
+
+.btnprevnext {
+  text-align: center;
+  margin: 20px;
+}
+
+.btnprev {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+.btnnext {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+/* banner mulai sewa */
+.cta-banner {
+  padding-top: 110px;
+}
+
+.cta-body {
+  background-color: #0d28a6;
+  height: 300px;
+  border-radius: 12px;
+  color: #ffffff;
+  padding-top: 70px;
+}
+
+.cta-body h3 {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+}
+.cta-body p {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cta-body a {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.btn-cta {
+  margin-top: 20px;
+  background: #5cb85f;
+  border-radius: 2px;
+}
+
+/* FAQ */
+.faq {
+  padding-top: 110px;
+}
+.faq-head h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+}
+.faq-head p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.accordion-button {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+.accordion-item {
+  margin-bottom: 15px;
+}
+
+/* footer */
+footer {
+  padding-top: 110px;
+}
+.text-foot1 p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+.text-foot2 h6 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.navigation ul,
+li {
+  padding: 0px;
+}
+
+.media-icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+  .burger-icon {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .burger-icon img {
+    width: 40px;
+  }
+  .sidebar {
+    position: absolute;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    width: 180px;
+    top: 0;
+    right: -180px;
+    height: 100vh;
+    padding-top: 32px;
+    padding-right: 24px;
+    padding-left: 16px;
+    z-index: 1;
+    transition: 0.3s;
+  }
+  .sidebar.menu-active {
+    right: 0;
+  }
+
+  .overlay-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+  .overlay-bg.menu-active {
+    visibility: visible;
+    opacity: 1;
+  }
+  .top-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-sidebar h3 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+  }
+  .menu a {
+    margin-left: 0;
+  }
+  .hero-thumbnail {
+    position: relative;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+  }
+
+  .hero-thumbnail img {
+    width: 100%;
+  }
+  .hero-section {
+    padding-top: 100px;
+  }
+
+  .hero-content {
+    padding: 40px 0px;
+  }
+
+  .hero-content h1 {
+    font-size: 50px;
+  }
+  .hero-content p {
+    font-size: 1;
+    line-height: 1.5;
+  }
+
+  .our-services {
+    padding-top: 110px;
+  }
+  .img-service img {
+    max-width: 85%;
+  }
+  .deskripsi {
+    padding-top: 30px;
+  }
+
+  .Why-border {
+    margin: 18px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hapy-girl img {
+    width: 100%;
+  }
+
+  .card_kiri {
+    width: 50%;
+    height: 50%;
+    margin: 25px 45px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card_kanan {
+    position: relative;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .faq-icon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btnprevnext {
+    text-align: center;
+    margin: 10px;
+  }
+
+  .cta-body h3 {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 150%;
+  }
+
+  .cta-body p {
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .media-icon {
+    display: flex;
+    justify-content: space-around;
+  }
+}
