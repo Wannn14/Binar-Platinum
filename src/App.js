@@ -5,17 +5,21 @@ import {Routes, Route} from "react-router-dom";
 import Home from "./pages/landing-page";
 import CariMobil from "./pages/cari-mobil";
 import Detail from "./pages/detail";
-import Login from "./pages/Login/login";
+import Login from "./pages/Login/Login";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router";
 
 
 function App() {
+  const  {isAuth} = useSelector ((state)=>state.authStore)
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cari-mobil" element={<CariMobil />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/cari-mobil" element={<CariMobil/>} />
         <Route path="/Detail/:id" element={<Detail />} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/Login" element={<Login/>} />
+        <Route path="/" element={isAuth?<Home/>:<Navigate to='Login' />} />
       </Routes>
     </>
   );
