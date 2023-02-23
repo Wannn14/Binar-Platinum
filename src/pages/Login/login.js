@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import {Form, Button} from 'react-bootstrap';
 import loginimage from "../../assets/image/login-image.png";
-import { loginCustomer } from '../../store/actions/actions-slice';
+import { loginCustomer,logout } from '../../store/actions/actions-slice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
@@ -26,6 +26,8 @@ const Login = () => {
     dispatch(loginCustomer({email:inputEmail,password:inputPassword}))
             .unwrap()
             .then(()=>navigate('/'))
+
+            // dispatch(logout())
     }
     return (
         <section>

@@ -12,6 +12,8 @@ const loginCustomer= createAsyncThunk('auth/login',async(payload)=>{
         console.log(error);
     }
 })
+
+
 const authSlice= createSlice({
     name:"authLogin",
     initialState,
@@ -20,11 +22,13 @@ const authSlice= createSlice({
             state.isAuth = action.payload
         },
         logout (state,action){
+            localStorage.removeItem('access_token')
             state.isAuth = action.payload
         }
     },
     extraReducers:(builder)=>{
         builder.addCase(loginCustomer.fulfilled,(state,action)=>{
+            localStorage.setItem('access_token', action.payload)
             authSlice.caseReducers.login(state,{
                 payload: !! action.payload,
                 type: loginCustomer.typePrefix
