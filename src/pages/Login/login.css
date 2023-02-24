@@ -6,3 +6,53 @@
     padding: 0px 175px;
     margin: auto;
 }
+
+.lf-login h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 32px 0px; 
+}
+img.closelogo {
+    width: 28px ;
+    visibility: hidden;
+}
+.logo-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-login a {
+    display: flex;
+    align-items: center;
+}
+@media (max-width:540px) {
+    .lf-login {
+        /* padding: 0; */
+        /* height: 100vh; */
+        /* display: flex; */
+        /* justify-content: center ; */
+        /* align-items: flex-start ; */
+        padding: 30px 16px;
+        width: 328px;
+    }
+
+    img.closelogo {
+        visibility: visible;
+    }
+
+    .rg-login {
+        visibility: hidden;
+    }
+}
+@media (max-width:996px) {
+    img.closelogo {
+        visibility: visible;
+    }
+    .lf-login {
+    padding: 30px 16px;
+        width: 328px;
+}
+}

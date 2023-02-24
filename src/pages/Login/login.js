@@ -5,6 +5,8 @@ import loginimage from "../../assets/image/login-image.png";
 import { loginCustomer,logout } from '../../store/actions/actions-slice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Logologin from '../../assets/image/logo2.svg';
+import Closelogo from '../../assets/image/close.svg';
 const Login = () => {
     const [inputEmail, setInputEmail] = useState () 
     const [inputPassword,setInputPassword] = useState ()
@@ -34,6 +36,13 @@ const Login = () => {
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-6 lf-login'>
+                    <div className="logo-login">
+                  <a href="/"><img src={Logologin} alt="BCR" className='homelogo' /></a>
+                  
+                    <img
+                      src={Closelogo} alt="close" className='closelogo' />
+                  
+                </div>
                         <h2>Welome Back !</h2>
                         <Form onSubmit={handleLogin}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
