@@ -3,6 +3,9 @@ import BCR83 from "../../assets/image/Group 83.png";
 import LogoBCR from "../../assets/image/logo2.svg";
 import {Form, Button, FormGroup, FormLabel, FormControl} from "react-bootstrap";
 import {Link, useNavigate} from "react-router-dom";
+import {signupCustomer} from "../../store/actions/actions-slice";
+import {useDispatch} from "react-redux";
+import "./register.css";
 import axios from "axios";
 
 const Register = () => {
@@ -22,22 +25,17 @@ const Register = () => {
     setPassword(e.target.value);
   };
 
-  const handleRegist = () => {
-    const payload = {
-      name: name,
-      email: email,
-      password: password,
-    };
-    axios
-      .post(
-        "https://bootcamp-rent-cars.herokuapp.com/customer/auth/register",
-        payload
-      )
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.acces_token);
-        Navigate("/");
-      });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleRegister = (e) => {
+    e.preventDefault();
+    console.log("succes");
+    dispatch(signupCustomer({email: email,password: password,name: name }))
+      .unwrap()
+      .then(() => navigate("/login"));
+      alert('Berhasil Daftar.. !')
+
+    // dispatch(logout())
   };
 
   return (
@@ -49,7 +47,7 @@ const Register = () => {
               <img src={LogoBCR} alt=""></img>
             </div>
             <h2>Sign Up</h2>
-            <Form>
+            <Form onSubmit={handleRegister}>
               <FormGroup className="mb-3" controlId="formBasicName">
                 <FormLabel>Name *</FormLabel>
                 <FormControl
@@ -78,7 +76,6 @@ const Register = () => {
               </Form.Group>
 
               <Button
-                onClick={handleRegist}
                 variant="primary"
                 type="submit"
                 className="w-100 mb-3"
@@ -94,7 +91,7 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="col-6">
+          <div className="col-6 Regis-rg">
             <img className="w-100" src={BCR83} alt="" />
           </div>
         </div>

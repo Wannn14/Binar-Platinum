@@ -13,7 +13,7 @@ const Banner = () => {
                 kualitas terbaik dengan harga terjangkau. Selalu siap melayani
                 kebutuhanmu untuk sewa mobil selama 24 jam.
               </p>
-              <a href={`/cari-mobil`} className="btn btn-success">
+              <a href='/cari-mobil' className="btn btn-success">
                 Mulai Sewa Mobil
               </a>
             </div>

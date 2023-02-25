@@ -51,6 +51,10 @@ ul {
 .overlay-bg {
   display: none;
 }
+.button-register {
+  background: #5CB85F;
+  border: none;
+}
 
 /* Banner */
 .hero-section {

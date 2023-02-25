@@ -3,16 +3,27 @@ import "./style.css";
 import Logo from "../assets/image/logo.svg";
 import Menu from "../assets/image/menu.png";
 import CloseButton from "../assets/image/close.svg";
+import { Button } from "react-bootstrap";
+import { logout } from "../store/actions/actions-slice";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router";
 
 const Header = () => {
   const [active, setActive] = useState(false);
-
+  const navigate = useNavigate ()
   const openSidebar = () => {
     setActive(true);
   };
   const closeButton = () => {
     setActive(false);
   };
+  const dispatch = useDispatch()
+  const handlelogout =() =>{
+    dispatch(logout())
+    navigate('/login')
+  
+    
+  }
 
   return (
     <header className="header">
@@ -21,7 +32,8 @@ const Header = () => {
           <div className="logo">
             <img src={Logo} alt="logo saya" loading="lazy" />
           </div>
-          <div className={`overlay-bg ${active ? "menu-active" : ""}`} />
+          <div className={`overlay-bg ${active ? "menu-active" : ""}`}>
+          </div>
           <div
             className={`sidebar ${active ? "menu-active" : ""}`}
             onClick={closeButton}
@@ -45,7 +57,10 @@ const Header = () => {
               <li>
                 <a href="#faq">FAQ</a>
               </li>
+               <Button className="btn btn-success m-2">Register</Button>
+               <Button className="btn btn-danger m-2" onClick={handlelogout}>Logout</Button>
             </ul>
+           
           </div>
 
           <div className="burger-icon" onClick={openSidebar}>

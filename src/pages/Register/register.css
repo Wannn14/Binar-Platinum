@@ -1,4 +1,28 @@
 .Regis-lf {
   padding: 0px 175px;
-  margin: auto;
+  margin: auto !important;
+}
+
+@media (max-width:540px) {
+  .Regis-lf {
+      padding: 30px 16px;
+      width: 328px;
+  }
+
+  img.BCR83{
+      visibility: visible;
+  }
+
+  .Regis-rg {
+      visibility: hidden;
+  }
+}
+@media (max-width:996px) {
+  img.BCR83{
+      visibility: visible;
+  }
+  .Regis-lf {
+  padding: 30px 16px;
+      width: 328px;
+}
 }

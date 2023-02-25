@@ -28,7 +28,7 @@ const Login = () => {
     dispatch(loginCustomer({email: inputEmail, password: inputPassword}))
       .unwrap()
       .then(() => navigate("/"));
-
+      alert('Login Berhasil')
     // dispatch(logout())
   };
   return (
@@ -69,7 +69,7 @@ const Login = () => {
             <div className="sign-text">
               <p className="text-center">
                 Don't have an account?
-                <a href="http">Sign Up for free</a>
+                <a href="/register">Sign Up for free</a>
               </p>
             </div>
           </div>
