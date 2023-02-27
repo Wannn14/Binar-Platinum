@@ -4,7 +4,9 @@ import Login from '../pages/Login/Login';
 import LandingPage from '../pages/landing-page';
 import CariMobil from '../pages/cari-mobil'
 import Detail from '../pages/detail'
+import Filter from '../pages/fillter'
 import Register from '../pages/Register/register';
+import BayarMobil from '../pages/Payment/bayar-mobil'
 import { useSelector } from "react-redux";
 const Routes = () => {
     const  {isAuth} = useSelector ((state)=>state.authStore)
@@ -27,11 +29,19 @@ const Routes = () => {
     },
     {
       path: '/cari-mobil',
-      element: isAuth?<CariMobil/>:<Navigate replace path to='/Login' />
+      element: <CariMobil/>
     },
     {
-      path: 'Detail/:id',
-      element: isAuth?<Detail/>:<Navigate to = '/login'/>
+      path: '/filter',
+      element: <Filter/>
+    },
+    {
+      path: 'detail',
+      element: <Detail/>
+    },
+    {
+      path: 'pembayaran',
+      element: <BayarMobil/>
     },
 
 
