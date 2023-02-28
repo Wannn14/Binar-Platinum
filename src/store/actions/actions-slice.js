@@ -24,6 +24,7 @@ const authSlice= createSlice({
         },
         logout (state,action){
             localStorage.removeItem('access_token')
+            localStorage.removeItem('role')
             state.isAuth = action.payload
         }
     },

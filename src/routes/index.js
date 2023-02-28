@@ -1,48 +1,54 @@
-import { Navigate } from 'react-router';
+import {Navigate} from "react-router";
 
-import Login from '../pages/Login/Login';
-import LandingPage from '../pages/landing-page';
-import CariMobil from '../pages/cari-mobil'
-import Detail from '../pages/detail'
-import Register from '../pages/Register/register';
-import { useSelector } from "react-redux";
-import Base from './Base';
+import Login from "../pages/Login/Login";
+import LandingPage from "../pages/landing-page";
+import CariMobil from "../pages/cari-mobil";
+import Detail from "../pages/detail";
+import Filter from "../pages/fillter";
+import Register from "../pages/Register/register";
+import BayarMobil from "../pages/Payment/bayar-mobil";
+import {useSelector} from "react-redux";
 const Routes = () => {
-    const  {isAuth} = useSelector ((state)=>state.authStore)
-
-
+  const {isAuth} = useSelector((state) => state.authStore);
   return [
     {
-      path: 'login',
-      element: <Login />
+      path: "login",
+      element: <Login />,
     },
     {
-      path: '/register',
-      element: <Register />
+      path: "/register",
+      element: <Register />,
     },
     {
-      path: 'home',
-      element: isAuth?<LandingPage/>:<Navigate to = '/login'/>
+      path: "home",
+      element: isAuth ? <LandingPage /> : <Navigate to="/login" />,
     },
     {
-        path: '/',
-        element: isAuth?<LandingPage/>:<Navigate to = '/login'/>
+      path: "/",
+      element: isAuth ? <LandingPage /> : <Navigate to="/login" />,
     },
     {
-      path: '/cari-mobil',
-      element: isAuth?<CariMobil/>:<Navigate replace path to='/Login' />
+      path: "/cari-mobil",
+      element: <CariMobil />,
     },
     {
-      path: 'Detail/:id',
-      element: isAuth?<Detail/>:<Navigate to = '/login'/>
+      path: "/filter",
+      element: <Filter />,
+    },
+    {
+      path: "detail",
+      element: <Detail />,
+    },
+    {
+      path: "pembayaran",
+      element: <BayarMobil />,
     },
 
-
     {
-        path:'*',
-        element:<Navigate to={isAuth?'':'/login'}/>
-    }
-  ]; 
+      path: "*",
+      element: <Navigate to={isAuth ? "" : "/login"} />,
+    },
+  ];
 };
 
 export default Routes;

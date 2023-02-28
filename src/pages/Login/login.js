@@ -1,15 +1,31 @@
 import React, {useState} from "react";
 import "./Login.css";
-import {Form, Button} from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Toast,
+  ToastContainer,
+  ToastHeader,
+  ToastBody,
+} from "react-bootstrap";
 import loginimage from "../../assets/image/login-image.png";
 import {loginCustomer} from "../../store/actions/actions-slice";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import Logologin from "../../assets/image/logo2.svg";
 import Closelogo from "../../assets/image/close.svg";
+
 const Login = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
+  const [show, setShow] = useState(false);
+
+  const toastShow = () => {
+    setShow(true);
+  };
+
   const handleEmail = (e) => {
     e.preventDefault();
     setInputEmail(e.target.value);
@@ -27,12 +43,37 @@ const Login = () => {
     console.log("login");
     dispatch(loginCustomer({email: inputEmail, password: inputPassword}))
       .unwrap()
-      .then(() => navigate("/"));
-      alert('Login Berhasil')
+      .then(() => navigate("/"))
+      .catch((error)=>{alert('password salah !')});
+
     // dispatch(logout())
   };
   return (
     <section>
+      <Row>
+        <Col xs={6}>
+          <ToastContainer className="p-3" position="top-center">
+            {["info"].map((variant, idx) => (
+              <Toast
+                className="d-inline-block m-1"
+                bg={variant.toLocaleLowerCase()}
+                key={idx}
+                onClose={() => setShow(false)}
+                show={show}
+                delay={3000}
+              >
+                <ToastHeader>
+                  <strong className="me-auto">Message</strong>
+                  <small>just now</small>
+                </ToastHeader>
+                <ToastBody className={variant === "info" && "text-white"}>
+                  Login Berhasil !
+                </ToastBody>
+              </Toast>
+            ))}
+          </ToastContainer>
+        </Col>
+      </Row>
       <div className="container-fluid">
         <div className="row">
           <div className="col-6 lf-login">
@@ -62,7 +103,12 @@ const Login = () => {
                   onChange={hadlePassword}
                 />
               </Form.Group>
-              <Button variant="primary" type="submit" className="w-100 mb-3">
+              <Button
+                onClick={toastShow}
+                variant="primary"
+                type="submit"
+                className="w-100 mb-3"
+              >
                 Sign In
               </Button>
             </Form>

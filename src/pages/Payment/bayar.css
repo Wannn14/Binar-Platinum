@@ -1,0 +1,57 @@
+.payment {
+  height: 300px;
+    background: 
+    #F1F3FF;
+    padding-top: 150px;
+    position: relative;
+    
+  }
+  .btn-previous{
+    color: black;
+    border: none;
+    background-color:  #F1F3FF;
+  }
+  .detail-box {
+    box-shadow: 0px 0px 10px rgba(14, 13, 13, 0.15);
+    border-radius: 10px;
+    background-color: #fff;
+    position: relative;
+    margin-top: -75px;
+    z-index: 8;
+    padding: 20px;
+  }
+  .disable{
+    color: darkgray;
+  }
+  .button-tf{
+    width: 100px;
+  }
+  .total {
+    
+    padding: 40px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .total1 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-show{
+    display: flex;
+    width: 100px;
+    height: 35px;
+    background-color: white;
+    border: none;
+  }
+  .float-check-right{
+    display: flex;
+    float: right;
+    color: green;
+  }
+  .text-indent{
+    text-indent: 10px;
+  }
+  .list-group-payment{
+    display: flex;
+    margin-left: -15px !important ;
+  }
