@@ -10,6 +10,7 @@ const loginCustomer= createAsyncThunk('auth/login',async(payload)=>{
     }
     catch(error){
         console.log(error);
+        throw error;
     }
 })
 
@@ -21,6 +22,7 @@ const authSlice= createSlice({
     reducers:{
         login(state,action){
             state.isAuth = action.payload
+
         },
         logout (state,action){
             localStorage.removeItem('access_token')
@@ -34,6 +36,12 @@ const authSlice= createSlice({
             localStorage.setItem('role', action.payload.role)
             authSlice.caseReducers.login(state,{
                 payload: !! action.payload,
+                type: loginCustomer.typePrefix
+            })
+        });
+        builder.addCase(loginCustomer.rejected,(state,action)=>{
+            authSlice.caseReducers.login(state,{
+                payload: false,
                 type: loginCustomer.typePrefix
             })
         })

@@ -61,7 +61,7 @@ const Register = () => {
                 key={idx}
                 onClose={() => setShow(false)}
                 show={show}
-                delay={7000}
+                delay={10000}
                 autohide
               >
                 <ToastHeader>

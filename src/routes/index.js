@@ -7,6 +7,7 @@ import Detail from "../pages/detail";
 import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
+import Tos from "../components/Viewpdf"
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -20,8 +21,8 @@ const Routes = () => {
       element: <Register />,
     },
     {
-      path: "home",
-      element: isAuth ? <LandingPage /> : <Navigate to="/login" />,
+      path: "/",
+      element:  <LandingPage />
     },
     {
       path: "/",
@@ -43,11 +44,15 @@ const Routes = () => {
       path: "pembayaran",
       element: <BayarMobil />,
     },
-
     {
-      path: "*",
-      element: <Navigate to={isAuth ? "" : "/login"} />,
+      path: "/tos",
+      element: <Tos />,
     },
+
+    // {
+    //   path: "*",
+    //   element: <Navigate to={isAuth ? "" : "/login"} />,
+    // },
   ];
 };
 

@@ -6,6 +6,7 @@ import tweet from "../assets/image/icon_twitter.svg";
 import twitch from "../assets/image/icon_twitch.svg";
 import logo from "../assets/image/logo.svg";
 
+
 const Foot = () => {
   return (
     <>
@@ -33,6 +34,9 @@ const Foot = () => {
                 </ul>
                 <ul>
                   <li>FAQ</li>
+                </ul>
+                <ul>
+                  <li> <a href="/tos">Terms and Conditions</a></li>
                 </ul>
               </div>
 

@@ -17,6 +17,7 @@ const Header = () => {
   const closeButton = () => {
     setActive(false);
   };
+  const isTokenExist = localStorage.getItem('access_token')
   const dispatch = useDispatch()
   const handlelogout =() =>{
     dispatch(logout())
@@ -57,8 +58,12 @@ const Header = () => {
               <li>
                 <a href="#faq">FAQ</a>
               </li>
-               <Button className="btn btn-success m-2">Register</Button>
-               <Button className="btn btn-danger m-2" onClick={handlelogout}>Logout</Button>
+                {
+                  isTokenExist?<Button className="btn btn-danger m-2" onClick={handlelogout}>Logout</Button>
+                  :<a href="/register"><Button className="btn btn-success m-2">Register</Button></a>
+                }
+              
+              
             </ul>
            
           </div>

@@ -20,11 +20,8 @@ import Closelogo from "../../assets/image/close.svg";
 const Login = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
-  const [show, setShow] = useState(false);
-
-  const toastShow = () => {
-    setShow(true);
-  };
+  const [isToastShow, setIsToastShow] = useState(false);
+  const [showmsg,setShowMsg] = useState ('Salah');
 
   const handleEmail = (e) => {
     e.preventDefault();
@@ -43,8 +40,19 @@ const Login = () => {
     console.log("login");
     dispatch(loginCustomer({email: inputEmail, password: inputPassword}))
       .unwrap()
-      .then(() => navigate("/"))
-      .catch((error)=>{alert('password salah !')});
+      .then(() => 
+      {
+        setShowMsg ('Berhasil Login')
+        setIsToastShow (true);
+        setTimeout(() => {
+          navigate("/")
+        }, 2000);
+      })
+      .catch((error)=>{
+        setShowMsg ('Passowrd salah')
+        setIsToastShow(true);
+
+      });
 
     // dispatch(logout())
   };
@@ -58,8 +66,8 @@ const Login = () => {
                 className="d-inline-block m-1"
                 bg={variant.toLocaleLowerCase()}
                 key={idx}
-                onClose={() => setShow(false)}
-                show={show}
+                onClose={() => setIsToastShow(false)}
+                show={isToastShow}
                 delay={3000}
               >
                 <ToastHeader>
@@ -67,7 +75,7 @@ const Login = () => {
                   <small>just now</small>
                 </ToastHeader>
                 <ToastBody className={variant === "info" && "text-white"}>
-                  Login Berhasil !
+                  {showmsg}
                 </ToastBody>
               </Toast>
             ))}
@@ -104,7 +112,6 @@ const Login = () => {
                 />
               </Form.Group>
               <Button
-                onClick={toastShow}
                 variant="primary"
                 type="submit"
                 className="w-100 mb-3"
