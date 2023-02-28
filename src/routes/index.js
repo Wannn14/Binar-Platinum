@@ -6,8 +6,11 @@ import CariMobil from '../pages/cari-mobil'
 import Detail from '../pages/detail'
 import Register from '../pages/Register/register';
 import { useSelector } from "react-redux";
+import Base from './Base';
 const Routes = () => {
     const  {isAuth} = useSelector ((state)=>state.authStore)
+
+
   return [
     {
       path: 'login',

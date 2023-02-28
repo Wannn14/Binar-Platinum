@@ -3,17 +3,14 @@ import BCR83 from "../../assets/image/Group 83.png";
 import LogoBCR from "../../assets/image/logo2.svg";
 import {Form, Button, FormGroup, FormLabel, FormControl} from "react-bootstrap";
 import {Link, useNavigate} from "react-router-dom";
-import {signupCustomer} from "../../store/actions/actions-slice";
+import { signupCustomer } from "../../store/actions/register-slice";
 import {useDispatch} from "react-redux";
 import "./register.css";
-import axios from "axios";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const Navigate = useNavigate();
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -34,8 +31,6 @@ const Register = () => {
       .unwrap()
       .then(() => navigate("/login"));
       alert('Berhasil Daftar.. !')
-
-    // dispatch(logout())
   };
 
   return (
