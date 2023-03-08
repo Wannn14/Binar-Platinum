@@ -5,6 +5,15 @@ import {Container, Row, Col, Card} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import Axios from "axios";
 import User from "../assets/image/fi_users.svg";
+// import { DateRangePicker } from 'rsuite';
+// import {DatePicker} from 'antd';
+import Button from 'react-bootstrap/Button';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
+
+
+
 
 const Detail = () => {
   const [detail, setDetail] = useState({});
@@ -32,6 +41,38 @@ const Detail = () => {
     }
   }, [id]);
 
+  // const {
+  //   RangePicker,
+    
+  // } = DatePicker;
+  // const [dates, setDates] = useState(null);
+  // const [value, setValue] = useState(null);
+  // const disabledDate = (current) => {
+  //   if (!dates) {
+  //     return false;
+  //   }
+  //   const tooLate = dates[0] && current.diff(dates[0], 'days') > 7;
+  //   const tooEarly = dates[1] && dates[1].diff(current, 'days') > 7;
+  //   return !!tooEarly || !!tooLate;
+  // };
+  // const onOpenChange = (open) => {
+  //   if (open) {
+  //     setDates([null, null]);
+  //   } else {
+  //     setDates(null);
+  //   }
+  // };
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+
+console.log (dates,'ini tanggal')
+  };
+console.log (endDate)
   return (
     <>
       <Header />
@@ -113,11 +154,43 @@ const Detail = () => {
                     })()}
                   </div>
                 </div>
+                  <div className="datebox">
+                    <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
+                  
+               
+                  
+                    
 
+                  </div>
+                  <div className="date">
+                  {/* <RangePicker
+      value={dates || value}
+      disabledDate={disabledDate}
+      onCalendarChange={(val) => setDates(val)}
+      onChange={(val) => setValue(val)}
+      onOpenChange={onOpenChange}
+    /> */}
+
+<DatePicker
+       selected={startDate}
+       onChange={(date) => onChange(moment(date).format('YYYY-MM-DD'))}
+       startDate={startDate}
+       endDate={endDate}
+       selectsRange
+       inline
+       dateFormat="dd-MM-yyyy"
+        
+      
+    
+    />
+                  </div>
                 <div className="nominal">
                   <h4>Total</h4>
                   <h4>Rp {detail.price} / Hari</h4>
                 </div>
+                <Button variant="success" size="sm" >
+                        Lanjutkan Pembayaran
+                      </Button>
               </Card.Body>
             </Card>
             <a href={`/cari-mobil`} className="btn btn-success btn-detail">
