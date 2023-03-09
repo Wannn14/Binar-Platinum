@@ -7,13 +7,10 @@ import Axios from "axios";
 import User from "../assets/image/fi_users.svg";
 // import { DateRangePicker } from 'rsuite';
 // import {DatePicker} from 'antd';
-import Button from 'react-bootstrap/Button';
+// import Button from "react-bootstrap/Button";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from 'moment';
-
-
-
+// import moment from "moment";
 
 const Detail = () => {
   const [detail, setDetail] = useState({});
@@ -43,7 +40,7 @@ const Detail = () => {
 
   // const {
   //   RangePicker,
-    
+
   // } = DatePicker;
   // const [dates, setDates] = useState(null);
   // const [value, setValue] = useState(null);
@@ -73,6 +70,13 @@ const Detail = () => {
 // console.log (dates,'ini tanggal')
 // };
 
+// const [startDate, setStartDate] = useState(null);
+// const [endDate, setEndDate] = useState(null);
+
+// console.log (dates,'ini tanggal')
+//   // };
+// console.log (endDate)
+
 const [startDate, setStartDate] = useState(null);
 const [endDate, setEndDate] = useState(null);
 
@@ -83,8 +87,6 @@ const handleStartDateChange = (date) => {
 
 const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000) : null;
 
-
- 
 
   return (
     <>
@@ -167,15 +169,10 @@ const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 *
                     })()}
                   </div>
                 </div>
-                  <div className="datebox">
-                    <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
-                  
-               
-                  
-                    
-
-                  </div>
-                  <div className="date">
+                <div className="datebox">
+                  <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
+                </div>
+                <div className="date">
                   {/* <RangePicker
       value={dates || value}
       disabledDate={disabledDate}
@@ -185,14 +182,14 @@ const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 *
     /> */}
 
 {/* <DatePicker
-      selectsRange={true}
-      startDate={startDate}
-      endDate={endDate}
-      onChange={(update) => {
-        setDateRange(update);
-      }}
-      isClearable={true}
-      /> */}
+       selected={startDate}
+       onChange={(date) => onChange(moment(date).format('YYYY-MM-DD'))}
+       startDate={startDate}
+       endDate={endDate}
+       selectsRange
+       inline
+       dateFormat="dd-MM-yyyy" 
+    /> */}
 
 <>
       <DatePicker
@@ -215,15 +212,17 @@ const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 *
       />
     </>
 
-
                   </div>
                 <div className="nominal">
                   <h4>Total</h4>
                   <h4>Rp {detail.price} / Hari</h4>
                 </div>
-                <Button variant="success" size="sm" >
-                        Lanjutkan Pembayaran
-                      </Button>
+                <a href={`/pembayaran`} className="btn btn-success btn-detail">
+                  Lanjutkan Pembayaran
+                </a>
+                {/* <Button variant="success" size="sm">
+                  Lanjutkan Pembayaran
+                </Button> */}
               </Card.Body>
             </Card>
             <a href={`/cari-mobil`} className="btn btn-success btn-detail">
