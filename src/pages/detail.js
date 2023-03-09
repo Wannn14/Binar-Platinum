@@ -63,16 +63,29 @@ const Detail = () => {
   //   }
   // };
 
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-  const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
+//   const [startDate, setStartDate] = useState(new Date());
+//   const [endDate, setEndDate] = useState(null);
+//   const onChange = (dates) => {
+//     const [start, end] = dates;
+//     setStartDate(start);
+//     setEndDate(end);
 
-console.log (dates,'ini tanggal')
-  };
-console.log (endDate)
+// console.log (dates,'ini tanggal')
+// };
+
+const [startDate, setStartDate] = useState(null);
+const [endDate, setEndDate] = useState(null);
+
+const handleStartDateChange = (date) => {
+  setStartDate(date);
+  setEndDate(null); // reset tanggal akhir saat tanggal awal berubah
+};
+
+const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000) : null;
+
+
+ 
+
   return (
     <>
       <Header />
@@ -171,18 +184,38 @@ console.log (endDate)
       onOpenChange={onOpenChange}
     /> */}
 
-<DatePicker
-       selected={startDate}
-       onChange={(date) => onChange(moment(date).format('YYYY-MM-DD'))}
-       startDate={startDate}
-       endDate={endDate}
-       selectsRange
-       inline
-       dateFormat="dd-MM-yyyy"
-        
-      
-    
-    />
+{/* <DatePicker
+      selectsRange={true}
+      startDate={startDate}
+      endDate={endDate}
+      onChange={(update) => {
+        setDateRange(update);
+      }}
+      isClearable={true}
+      /> */}
+
+<>
+      <DatePicker
+        selected={startDate}
+        onChange={handleStartDateChange}
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}
+        placeholderText="Tanggal Awal"
+      />
+      <DatePicker
+        selected={endDate}
+        onChange={(date) => setEndDate(date)}
+        selectsEnd
+        startDate={startDate}
+        endDate={endDate}
+        minDate={startDate}
+        maxDate={maxEndDate}
+        placeholderText="Tanggal Akhir"
+      />
+    </>
+
+
                   </div>
                 <div className="nominal">
                   <h4>Total</h4>
