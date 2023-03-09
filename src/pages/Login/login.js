@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./Login.css";
+import "./login.css";
 import {
   Form,
   Button,
@@ -21,7 +21,7 @@ const Login = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
   const [isToastShow, setIsToastShow] = useState(false);
-  const [showmsg,setShowMsg] = useState ('Salah');
+  const [showmsg, setShowMsg] = useState("Salah");
 
   const handleEmail = (e) => {
     e.preventDefault();
@@ -40,18 +40,16 @@ const Login = () => {
     console.log("login");
     dispatch(loginCustomer({email: inputEmail, password: inputPassword}))
       .unwrap()
-      .then(() => 
-      {
-        setShowMsg ('Berhasil Login')
-        setIsToastShow (true);
+      .then(() => {
+        setShowMsg("Berhasil Login");
+        setIsToastShow(true);
         setTimeout(() => {
-          navigate("/")
+          navigate("/");
         }, 2000);
       })
-      .catch((error)=>{
-        setShowMsg ('Passowrd salah')
+      .catch((error) => {
+        setShowMsg("Passowrd salah");
         setIsToastShow(true);
-
       });
 
     // dispatch(logout())
@@ -111,11 +109,7 @@ const Login = () => {
                   onChange={hadlePassword}
                 />
               </Form.Group>
-              <Button
-                variant="primary"
-                type="submit"
-                className="w-100 mb-3"
-              >
+              <Button variant="primary" type="submit" className="w-100 mb-3">
                 Sign In
               </Button>
             </Form>

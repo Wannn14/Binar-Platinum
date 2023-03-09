@@ -1,13 +1,14 @@
 import {Navigate} from "react-router";
 
-import Login from "../pages/Login/Login";
+import Login from "../pages/Login/login";
 import LandingPage from "../pages/landing-page";
 import CariMobil from "../pages/cari-mobil";
 import Detail from "../pages/detail";
 import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
-import Tos from "../components/Viewpdf"
+import Payment02 from "../pages/Payment02/payment02";
+import Tos from "../components/Viewpdf";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -22,7 +23,7 @@ const Routes = () => {
     },
     {
       path: "/",
-      element:  <LandingPage />
+      element: <LandingPage />,
     },
     {
       path: "/",
@@ -43,6 +44,10 @@ const Routes = () => {
     {
       path: "pembayaran",
       element: <BayarMobil />,
+    },
+    {
+      path: "konfirmasi",
+      element: <Payment02 />,
     },
     {
       path: "/tos",

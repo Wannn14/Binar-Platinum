@@ -7,13 +7,10 @@ import Axios from "axios";
 import User from "../assets/image/fi_users.svg";
 // import { DateRangePicker } from 'rsuite';
 // import {DatePicker} from 'antd';
-import Button from 'react-bootstrap/Button';
+// import Button from "react-bootstrap/Button";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from 'moment';
-
-
-
+import moment from "moment";
 
 const Detail = () => {
   const [detail, setDetail] = useState({});
@@ -43,7 +40,7 @@ const Detail = () => {
 
   // const {
   //   RangePicker,
-    
+
   // } = DatePicker;
   // const [dates, setDates] = useState(null);
   // const [value, setValue] = useState(null);
@@ -70,9 +67,9 @@ const Detail = () => {
     setStartDate(start);
     setEndDate(end);
 
-console.log (dates,'ini tanggal')
+    console.log(dates, "ini tanggal");
   };
-console.log (endDate)
+  console.log(endDate);
   return (
     <>
       <Header />
@@ -154,15 +151,10 @@ console.log (endDate)
                     })()}
                   </div>
                 </div>
-                  <div className="datebox">
-                    <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
-                  
-               
-                  
-                    
-
-                  </div>
-                  <div className="date">
+                <div className="datebox">
+                  <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
+                </div>
+                <div className="date">
                   {/* <RangePicker
       value={dates || value}
       disabledDate={disabledDate}
@@ -171,26 +163,28 @@ console.log (endDate)
       onOpenChange={onOpenChange}
     /> */}
 
-<DatePicker
-       selected={startDate}
-       onChange={(date) => onChange(moment(date).format('YYYY-MM-DD'))}
-       startDate={startDate}
-       endDate={endDate}
-       selectsRange
-       inline
-       dateFormat="dd-MM-yyyy"
-        
-      
-    
-    />
-                  </div>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) =>
+                      onChange(moment(date).format("YYYY-MM-DD"))
+                    }
+                    startDate={startDate}
+                    endDate={endDate}
+                    selectsRange
+                    inline
+                    dateFormat="dd-MM-yyyy"
+                  />
+                </div>
                 <div className="nominal">
                   <h4>Total</h4>
                   <h4>Rp {detail.price} / Hari</h4>
                 </div>
-                <Button variant="success" size="sm" >
-                        Lanjutkan Pembayaran
-                      </Button>
+                <a href={`/pembayaran`} className="btn btn-success btn-detail">
+                  Lanjutkan Pembayaran
+                </a>
+                {/* <Button variant="success" size="sm">
+                  Lanjutkan Pembayaran
+                </Button> */}
               </Card.Body>
             </Card>
             <a href={`/cari-mobil`} className="btn btn-success btn-detail">
