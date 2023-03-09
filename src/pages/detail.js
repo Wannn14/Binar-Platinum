@@ -11,6 +11,7 @@ import User from "../assets/image/fi_users.svg";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import moment from "moment";
+import { add, endOfDay, min, startOfDay } from "date-fns";
 
 const Detail = () => {
   const [detail, setDetail] = useState({});
@@ -77,16 +78,30 @@ const Detail = () => {
 //   // };
 // console.log (endDate)
 
-const [startDate, setStartDate] = useState(null);
-const [endDate, setEndDate] = useState(null);
+const [range, setRange] = useState([ new Date(), add( new Date(), { days: 7 } ) ] );
 
-const handleStartDateChange = (date) => {
-  setStartDate(date);
-  setEndDate(null); // reset tanggal akhir saat tanggal awal berubah
-};
+  const onRangeChange = (range) => {
+    if (7 && range[1]) {
+      //  Determine the max date
+      const maxDate = add(range[0], { days: 6 });
+      //  Then, choose between max value and actual value
+      range[1] = min([maxDate, range[1]]);
+    }
 
-const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 * 1000) : null;
+    // Ensure that we include info from the start of the day
+    range[0] = startOfDay(range[0]);
 
+    if (range[1]) {
+      // Ensure that we include info until the end of the day
+      range[1] = endOfDay(range[1]);
+    }
+
+    setRange(range);
+    console.log()
+  };
+  const dataKurang = range[1]-range[0];
+  const dataSamain = Math.ceil(dataKurang / (1000 * 3600 * 24)) 
+console.log(dataSamain)
 
   return (
     <>
@@ -173,44 +188,15 @@ const maxEndDate = startDate ? new Date(startDate.getTime() + 7 * 24 * 60 * 60 *
                   <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
                 </div>
                 <div className="date">
-                  {/* <RangePicker
-      value={dates || value}
-      disabledDate={disabledDate}
-      onCalendarChange={(val) => setDates(val)}
-      onChange={(val) => setValue(val)}
-      onOpenChange={onOpenChange}
-    /> */}
-
-{/* <DatePicker
-       selected={startDate}
-       onChange={(date) => onChange(moment(date).format('YYYY-MM-DD'))}
-       startDate={startDate}
-       endDate={endDate}
-       selectsRange
-       inline
-       dateFormat="dd-MM-yyyy" 
-    /> */}
-
-<>
-      <DatePicker
-        selected={startDate}
-        onChange={handleStartDateChange}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-        placeholderText="Tanggal Awal"
-      />
-      <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-        maxDate={maxEndDate}
-        placeholderText="Tanggal Akhir"
-      />
-    </>
+     
+<DatePicker
+                    selected={range[0]}
+                    startDate={range[0]}
+                    endDate={range[1]}
+                    onChange={onRangeChange}
+                    selectsRange
+                    inline
+                  />
 
                   </div>
                 <div className="nominal">
