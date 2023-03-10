@@ -1,0 +1,21 @@
+.row-video{
+    padding-top: 110px;
+}
+.player-wrapper {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+    position: relative;
+}
+.react-player{
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .player-wrapper {
+        width: 90%;
+        height: 250px;
+    }
+  }

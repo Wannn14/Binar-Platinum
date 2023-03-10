@@ -1,6 +1,6 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios';
-const initialState = {isReg: !! localStorage.getItem('role')}
+const initialState = {isReg: !! localStorage.getItem('email')}
 
 const signupCustomer= createAsyncThunk('auth/sign',async(payload)=>{
     try{
@@ -10,6 +10,7 @@ const signupCustomer= createAsyncThunk('auth/sign',async(payload)=>{
     }
     catch(error){
         console.log(error);
+        throw error;
     }
 })
 
@@ -28,6 +29,12 @@ const signupSlice= createSlice({
             localStorage.setItem('role', action.payload)
             signupSlice.caseReducers.signup(state,{
                 payload: !! action.payload,
+                type: signupCustomer.typePrefix
+            })
+        })
+        builder.addCase(signupCustomer.rejected,(state,action)=>{
+            signupSlice.caseReducers.signup(state,{
+                payload: false,
                 type: signupCustomer.typePrefix
             })
         })

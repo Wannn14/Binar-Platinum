@@ -23,11 +23,10 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [show, setShow] = useState(false);
+  const [isToastShow, setIsToastShow] = useState(false);
+  const [showmsg,setShowMsg] = useState ();
+  const [bgToast, setBgToast] = useState ();
 
-  const toastShow = () => {
-    setShow(true);
-  };
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -46,7 +45,20 @@ const Register = () => {
     console.log("succes");
     dispatch(signupCustomer({email: email, password: password, name: name}))
       .unwrap()
-      .then(() => navigate("/login"));
+      .then(() => {
+        setBgToast ('info')
+        setShowMsg ('Berhasil Login')
+        setIsToastShow (true);
+        setTimeout(() => {
+          navigate("/login")
+        }, 2000);
+      })
+      .catch((error)=>{
+        setBgToast ('danger')
+        setShowMsg ('Silahkan di cek kembali email')
+        setIsToastShow(true);
+
+      });
   };
 
   return (
@@ -54,22 +66,21 @@ const Register = () => {
       <Row>
         <Col xs={6}>
           <ToastContainer className="p-3" position="top-center">
-            {["info"].map((variant, idx) => (
+            {[{bgToast}].map((variant, idx) => (
               <Toast
                 className="d-inline-block m-1"
-                bg={variant.toLocaleLowerCase()}
+                bg={bgToast}
                 key={idx}
-                onClose={() => setShow(false)}
-                show={show}
+                onClose={() => setIsToastShow(false)}
+                show={isToastShow}
                 delay={10000}
                 autohide
               >
                 <ToastHeader>
                   <strong className="me-auto">Message</strong>
-                  <small>just now</small>
                 </ToastHeader>
-                <ToastBody className={variant === "info" && "text-white"}>
-                  Anda Berhasil Buat Akun !!
+                <ToastBody className={variant === {bgToast} && "text-white"}>
+                  {showmsg}
                 </ToastBody>
               </Toast>
             ))}
@@ -112,7 +123,6 @@ const Register = () => {
               </Form.Group>
 
               <Button
-                onClick={toastShow}
                 variant="primary"
                 type="submit"
                 className="w-100 mb-3"

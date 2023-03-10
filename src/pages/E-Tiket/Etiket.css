@@ -1,0 +1,48 @@
+.etiket {
+      height: 200px;
+      background: 
+      #F1F3FF;
+      padding-top: 100px;
+      position: relative;
+      
+    }
+.etiket-btn-back span {
+        padding: 16px 49px;
+    }
+.success-icon{
+    color: #5CB85F;
+    margin-top: 40px !important;
+}
+.etiket-invoice{
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    width: 60%;
+    margin: 0 auto;
+    padding: 24px;
+}
+.button-download{
+    padding: 8px;
+    border: 1px solid #0D28A6;
+    border-radius: 2px;
+    background: #fff;
+}
+.icon-download {
+    margin: 0 10px;
+    stroke-width: 0.5;
+}
+.button-download a {
+    text-decoration: none;
+    color: #0D28A6;
+    font-weight: 700;
+}
+.icon-download{
+    color:#0D28A6;
+}
+@media (min-width: 320px ) and (max-width: 767px) {
+    .etiket {
+        padding-top: 70px;
+    }
+    .etiket-invoice{
+        width: 90%;
+    }
+  }

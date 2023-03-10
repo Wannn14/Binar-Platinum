@@ -1,0 +1,29 @@
+.row-gallery{
+    padding-top: 110px;
+}
+img.gallery-image {
+    width: 400px;
+    height: 250px;
+    margin: 10px;
+    border-radius: 8px;
+}
+img.gallery-image:hover{
+    opacity: 0.8;
+}
+.lg-react-element {
+    text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    img.gallery-image {
+        width: 48%;
+        height: 220px;
+        margin: 5px;
+    }
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    img.gallery-image {
+        width: 100%;
+        height: 220px;
+    }
+  }

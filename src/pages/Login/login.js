@@ -21,7 +21,8 @@ const Login = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
   const [isToastShow, setIsToastShow] = useState(false);
-  const [showmsg,setShowMsg] = useState ('Salah');
+  const [showmsg,setShowMsg] = useState ();
+  const [bgToast, setBgToast] = useState ();
 
   const handleEmail = (e) => {
     e.preventDefault();
@@ -42,29 +43,30 @@ const Login = () => {
       .unwrap()
       .then(() => 
       {
-        setShowMsg ('Berhasil Login')
+        setBgToast ('info')
+        setShowMsg ('Selamat Anda Berhasil Login !!!')
         setIsToastShow (true);
         setTimeout(() => {
           navigate("/")
         }, 2000);
       })
       .catch((error)=>{
-        setShowMsg ('Passowrd salah')
+        setBgToast ('danger')
+        setShowMsg ('Silahkan periksa email atau password anda ')
         setIsToastShow(true);
 
       });
 
-    // dispatch(logout())
   };
   return (
     <section>
       <Row>
         <Col xs={6}>
           <ToastContainer className="p-3" position="top-center">
-            {["info"].map((variant, idx) => (
+            {[{bgToast}].map((variant, idx) => (
               <Toast
                 className="d-inline-block m-1"
-                bg={variant.toLocaleLowerCase()}
+                bg={bgToast}
                 key={idx}
                 onClose={() => setIsToastShow(false)}
                 show={isToastShow}
@@ -72,9 +74,8 @@ const Login = () => {
               >
                 <ToastHeader>
                   <strong className="me-auto">Message</strong>
-                  <small>just now</small>
                 </ToastHeader>
-                <ToastBody className={variant === "info" && "text-white"}>
+                <ToastBody className={variant === {bgToast} && "text-white"}>
                   {showmsg}
                 </ToastBody>
               </Toast>

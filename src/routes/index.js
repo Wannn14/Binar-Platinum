@@ -8,6 +8,8 @@ import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
 import Tos from "../components/Viewpdf"
+import ChartDashboard from "../pages/Dashboard/Chart";
+import Etiket from "../pages/E-Tiket/Etiket";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -25,24 +27,32 @@ const Routes = () => {
       element:  <LandingPage />
     },
     {
+      path: "/chart",
+      element:  <ChartDashboard />
+    },
+    {
       path: "/",
       element: isAuth ? <LandingPage /> : <Navigate to="/login" />,
     },
     {
+      path: "/pembayaran",
+      element: isAuth ?  <BayarMobil /> : <Navigate to="/login" />,
+    },
+    {
+      path: "/etiket",
+      element: isAuth ?  <Etiket /> : <Navigate to="/login" />,
+    },
+    {
       path: "/cari-mobil",
-      element: <CariMobil />,
+      element: isAuth ?  <CariMobil /> : <Navigate to="/login" />,
     },
     {
       path: "/filter",
-      element: <Filter />,
+      element: isAuth ?  <Filter /> : <Navigate to="/login" />,
     },
     {
-      path: "detail",
-      element: <Detail />,
-    },
-    {
-      path: "pembayaran",
-      element: <BayarMobil />,
+      path: "/Detail/:id",
+      element: isAuth ?  <Detail /> : <Navigate to="/login" />,
     },
     {
       path: "/tos",
