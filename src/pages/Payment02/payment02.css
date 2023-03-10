@@ -1,0 +1,60 @@
+.payment {
+  height: 250px;
+  background: #f1f3ff;
+  padding-top: 130px;
+  position: relative;
+}
+.btn-previous {
+  color: black;
+  border: none;
+  background-color: #f1f3ff;
+}
+.detail-box {
+  box-shadow: 0px 0px 10px rgba(14, 13, 13, 0.15);
+  border-radius: 10px;
+  background-color: #fff;
+  position: relative;
+  margin-top: -75px;
+  z-index: 8;
+  padding: 20px;
+}
+.disable {
+  color: darkgray;
+}
+
+.Pemilik {
+  margin-left: 35px;
+}
+
+.button-tf {
+  width: 100px;
+  height: 50px;
+}
+.total {
+  padding: 40px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.total1 {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-show {
+  display: flex;
+  width: 100px;
+  height: 35px;
+  background-color: white;
+  border: none;
+}
+.float-check-right {
+  display: flex;
+  float: right;
+  color: green;
+}
+.text-indent {
+  text-indent: 10px;
+}
+.list-group-payment {
+  display: flex;
+  margin-left: -15px !important ;
+}

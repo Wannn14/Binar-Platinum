@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./Login.css";
+import "./login.css";
 import {
   Form,
   Button,
@@ -47,14 +47,13 @@ const Login = () => {
         setShowMsg ('Selamat Anda Berhasil Login !!!')
         setIsToastShow (true);
         setTimeout(() => {
-          navigate("/")
+          navigate("/");
         }, 2000);
       })
       .catch((error)=>{
         setBgToast ('danger')
         setShowMsg ('Silahkan periksa email atau password anda ')
         setIsToastShow(true);
-
       });
 
   };
@@ -112,11 +111,7 @@ const Login = () => {
                   onChange={hadlePassword}
                 />
               </Form.Group>
-              <Button
-                variant="primary"
-                type="submit"
-                className="w-100 mb-3"
-              >
+              <Button variant="primary" type="submit" className="w-100 mb-3">
                 Sign In
               </Button>
             </Form>

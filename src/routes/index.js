@@ -10,6 +10,8 @@ import BayarMobil from "../pages/Payment/bayar-mobil";
 import Tos from "../components/Viewpdf"
 import ChartDashboard from "../pages/Dashboard/Chart";
 import Etiket from "../pages/E-Tiket/Etiket";
+import Payment02 from "../pages/Payment02/payment02";
+import Tos from "../components/Viewpdf";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -24,7 +26,7 @@ const Routes = () => {
     },
     {
       path: "/",
-      element:  <LandingPage />
+      element: <LandingPage />,
     },
     {
       path: "/chart",
@@ -53,6 +55,15 @@ const Routes = () => {
     {
       path: "/Detail/:id",
       element: isAuth ?  <Detail /> : <Navigate to="/login" />,
+      element: <Detail />,
+    },
+    {
+      path: "pembayaran",
+      element: <BayarMobil />,
+    },
+    {
+      path: "konfirmasi",
+      element: <Payment02 />,
     },
     {
       path: "/tos",
