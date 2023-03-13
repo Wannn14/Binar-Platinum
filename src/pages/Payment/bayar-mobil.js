@@ -13,6 +13,7 @@ const Bayar = () => {
   const [change1, setChange1] = useState("");
   const [change2, setChange2] = useState("");
 
+
   return (
     <>
       <Header />
@@ -21,14 +22,14 @@ const Bayar = () => {
           <Col>
             <Row>
               <div className="col-lg-8">
-                <button className="p-3 fs-6 fw-bold btn-previous">
+                <button className="fs-6 fw-bold btn-previous">
                   <FaArrowLeft className="me-3 mb-1" />
                   Pembayaran
                 </button>
               </div>
-              <div className="col-lg-4 ">
+              <div className="col-lg-4">
                 <ul className="menu d-flex justify-content-center">
-                  <img src={Step} className="mt-3" alt=""></img>
+                  <img src={Step} className="image" alt=""></img>
                 </ul>
               </div>
             </Row>
@@ -85,7 +86,7 @@ const Bayar = () => {
                   >
                     BNI
                   </Button>
-                  BCA BNI
+                  BNI Transfer
                   {change1 ? (
                     <FaCheck className="float-check-right mt-2" />
                   ) : (
@@ -99,7 +100,7 @@ const Bayar = () => {
                   >
                     Mndiri
                   </Button>
-                  BCA Mndiri
+                  Mndiri Transfer
                   {change2 ? (
                     <FaCheck className="float-check-right mt-2" />
                   ) : (

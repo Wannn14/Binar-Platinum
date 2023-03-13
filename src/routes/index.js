@@ -7,11 +7,10 @@ import Detail from "../pages/detail";
 import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
-import Tos from "../components/Viewpdf"
+import Tos from "../components/Viewpdf";
 import ChartDashboard from "../pages/Dashboard/Chart";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
-import Tos from "../components/Viewpdf";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
