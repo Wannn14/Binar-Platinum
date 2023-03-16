@@ -39,44 +39,6 @@ const Detail = () => {
     }
   }, [id]);
 
-  // const {
-  //   RangePicker,
-
-  // } = DatePicker;
-  // const [dates, setDates] = useState(null);
-  // const [value, setValue] = useState(null);
-  // const disabledDate = (current) => {
-  //   if (!dates) {
-  //     return false;
-  //   }
-  //   const tooLate = dates[0] && current.diff(dates[0], 'days') > 7;
-  //   const tooEarly = dates[1] && dates[1].diff(current, 'days') > 7;
-  //   return !!tooEarly || !!tooLate;
-  // };
-  // const onOpenChange = (open) => {
-  //   if (open) {
-  //     setDates([null, null]);
-  //   } else {
-  //     setDates(null);
-  //   }
-  // };
-
-//   const [startDate, setStartDate] = useState(new Date());
-//   const [endDate, setEndDate] = useState(null);
-//   const onChange = (dates) => {
-//     const [start, end] = dates;
-//     setStartDate(start);
-//     setEndDate(end);
-
-// console.log (dates,'ini tanggal')
-// };
-
-// const [startDate, setStartDate] = useState(null);
-// const [endDate, setEndDate] = useState(null);
-
-// console.log (dates,'ini tanggal')
-//   // };
-// console.log (endDate)
 
 const [range, setRange] = useState([ new Date(), add( new Date(), { days: 7 } ) ] );
 
@@ -101,7 +63,7 @@ const [range, setRange] = useState([ new Date(), add( new Date(), { days: 7 } ) 
   };
   const dataKurang = range[1]-range[0];
   const dataSamain = Math.ceil(dataKurang / (1000 * 3600 * 24)) 
-console.log(dataSamain)
+console.log(dataSamain,'ini jumlah tanggal')
 
   return (
     <>
@@ -188,14 +150,15 @@ console.log(dataSamain)
                   <h3>Tentukan lama sewa mobil (max. 7 hari)</h3>
                 </div>
                 <div className="date">
-     
+   
 <DatePicker
+              showIcon
                     selected={range[0]}
                     startDate={range[0]}
                     endDate={range[1]}
                     onChange={onRangeChange}
                     selectsRange
-                    inline
+                    // inline
                   />
 
                   </div>

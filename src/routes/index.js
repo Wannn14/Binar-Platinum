@@ -1,6 +1,6 @@
 import {Navigate} from "react-router";
 
-import Login from "../pages/Login/Login";
+import Login from "../pages/Login/login";
 import LandingPage from "../pages/landing-page";
 import CariMobil from "../pages/cari-mobil";
 import Detail from "../pages/detail";
@@ -11,7 +11,6 @@ import Tos from "../components/Viewpdf"
 import ChartDashboard from "../pages/Dashboard/Chart";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
-import Tos from "../components/Viewpdf";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -55,7 +54,7 @@ const Routes = () => {
     {
       path: "/Detail/:id",
       element: isAuth ?  <Detail /> : <Navigate to="/login" />,
-      element: <Detail />,
+     
     },
     {
       path: "pembayaran",

@@ -6,12 +6,16 @@ import Step from "../../assets/image/step.png";
 import {Row, Col, Button, Container, Card, ListGroup} from "react-bootstrap";
 import {FaArrowLeft, FaAngleUp, FaAngleDown, FaCheck} from "react-icons/fa";
 import {FiUsers} from "react-icons/fi";
+import Check from '../../assets/image/check.svg';
+
 
 const Bayar = () => {
   const [show, setShow] = useState(true);
   const [change, setChange] = useState(true);
   const [change1, setChange1] = useState("");
   const [change2, setChange2] = useState("");
+  const [selected, setSelected] = useState();
+  const selectClick = (index) => { setSelected(index) };
 
   return (
     <>
@@ -67,7 +71,49 @@ const Bayar = () => {
                 Kamu bisa membayar dengan transfer melalui ATM, Internet Banking
                 atau Mobile Banking
               </p>
-              <ListGroup variant="flush border-bottom border-top-0 list-group-payment">
+              <ul>
+                    <li
+                      className={selected === 1 ? 'active' : null}
+                      onClick={() => {
+                        selectClick(1);
+                        localStorage.setItem("bank", "BCA");
+                      }}
+                    >
+                      <div className="cont">
+                        <div className="bank">BCA</div>
+                        <h5>BCA Transfer</h5>
+                      </div>
+                      {selected === 1 ? <img src={Check} alt="check-list" /> : null}
+                    </li>
+                    <li
+                      className={selected === 2 ? 'active' : null}
+                      onClick={() => {
+                        selectClick(2);
+                        localStorage.setItem("bank", "BNI")
+                      }}
+                    >
+                      <div className="cont">
+                        <div className="bank">BNI</div>
+                        <h5>BNI Transfer</h5>
+                      </div>
+                      {selected === 2 ? <img src={Check} alt="check-list" /> : null}
+                    </li>
+                    <li
+                      className={selected === 3 ? 'active' : null}
+                      onClick={() => {
+                        selectClick(3);
+                        localStorage.setItem("bank", "BNI")
+                      }}
+                    >
+                      <div className="cont">
+                        <div className="bank">BNI</div>
+                        <h5>BNI Transfer</h5>
+                      </div>
+                      {selected === 3 ? <img src={Check} alt="check-list" /> : null}
+                    </li>
+                  
+                  </ul>
+              {/* <ListGroup variant="flush border-bottom border-top-0 list-group-payment">
                 <ListGroup.Item>
                   <Button
                     onClick={() => setChange(!change)}
@@ -106,7 +152,7 @@ const Bayar = () => {
                     ""
                   )}
                 </ListGroup.Item>
-              </ListGroup>
+              </ListGroup> */}
             </Card>
           </div>
           <div className="col-lg-5">

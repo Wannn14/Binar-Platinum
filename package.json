@@ -14,13 +14,10 @@
     "antd": "^5.2.3",
     "axios": "^1.1.2",
     "bootstrap": "^5.2.2",
-<<<<<<< HEAD
     "lightgallery": "^2.7.1",
-=======
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.7",
     "moment": "^2.29.4",
->>>>>>> cca398a362f350b105661b226e632bbf6d44bb10
     "pdfjs-dist": "^3.3.122",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
@@ -35,13 +32,10 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
-<<<<<<< HEAD
     "recharts": "^2.4.3",
-=======
     "react-tailwindcss-datepicker": "^1.4.2",
     "rsuite": "^5.28.0",
     "rsuite-daterangepicker": "^3.0.5",
->>>>>>> cca398a362f350b105661b226e632bbf6d44bb10
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
