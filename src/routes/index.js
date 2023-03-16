@@ -7,7 +7,7 @@ import Detail from "../pages/detail";
 import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
-import Tos from "../components/Viewpdf"
+import Tos from "../components/Viewpdf";
 import ChartDashboard from "../pages/Dashboard/Chart";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";

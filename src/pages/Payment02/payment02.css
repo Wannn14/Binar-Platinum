@@ -58,3 +58,17 @@
   display: flex;
   margin-left: -15px !important ;
 }
+
+@media (max-width:996px) {
+  .payment {
+    height: 325px;
+    background: 
+    #F1F3FF;
+    padding-top: 150px;
+    position: relative;
+    }
+    .image{
+      margin-top: 30px;
+    }
+  
+}
