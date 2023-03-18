@@ -4,17 +4,16 @@ import Foot from "../../components/footer";
 import "./bayar.css";
 import Step from "../../assets/image/step.png";
 import {Row, Col, Button, Container, Card, ListGroup} from "react-bootstrap";
-import {FaArrowLeft, FaAngleUp, FaAngleDown, FaCheck} from "react-icons/fa";
+import {FaArrowLeft, FaAngleUp, FaAngleDown} from "react-icons/fa";
 import {FiUsers} from "react-icons/fi";
 import Check from '../../assets/image/check.svg';
 
 
 const Bayar = () => {
   const [show, setShow] = useState(true);
-  const [change, setChange] = useState(true);
-  const [change1, setChange1] = useState("");
-  const [change2, setChange2] = useState("");
   const [selected, setSelected] = useState();
+
+
   const selectClick = (index) => { setSelected(index) };
 
 
@@ -72,88 +71,57 @@ const Bayar = () => {
                 Kamu bisa membayar dengan transfer melalui ATM, Internet Banking
                 atau Mobile Banking
               </p>
-              <ul>
-                    <li
-                      className={selected === 1 ? 'active' : null}
+              <ListGroup variant="flush border-bottom border-top-0 ">
+                <ListGroup.Item>
+                    <div
+                      className={selected === 1 ? 'active' : null} 
                       onClick={() => {
                         selectClick(1);
                         localStorage.setItem("bank", "BCA");
                       }}
                     >
-                      <div className="cont">
-                        <div className="bank">BCA</div>
-                        <h5>BCA Transfer</h5>
+                      <div className="mt-3" >
+                        <button className="bank btn btn-outline-secondary">BCA</button>
+                        <span className='ms-3' >BCA Transfer</span>
+                      
+                      {selected === 1 ? <img src={Check} className="float-check-right mt-2" alt="check-list" /> : null}
                       </div>
-                      {selected === 1 ? <img src={Check} alt="check-list" /> : null}
-                    </li>
-                    <li
+                    </div >
+                </ListGroup.Item>
+                <ListGroup.Item>
+                    <div
                       className={selected === 2 ? 'active' : null}
                       onClick={() => {
                         selectClick(2);
-                        localStorage.setItem("bank", "BNI")
+                        localStorage.setItem("bank", "BCA");
                       }}
                     >
-                      <div className="cont">
-                        <div className="bank">BNI</div>
-                        <h5>BNI Transfer</h5>
+                      <div className="mt-3" >
+                        <button className="bank btn btn-outline-secondary">BCA</button>
+                        <span className='ms-3' >BCA Transfer</span>
+                      
+                      {selected === 2 ? <img src={Check} className="float-check-right mt-2" alt="check-list" /> : null}
                       </div>
-                      {selected === 2 ? <img src={Check} alt="check-list" /> : null}
-                    </li>
-                    <li
+                    </div>
+                
+                  </ListGroup.Item>  
+                  <ListGroup.Item>
+                    <div
                       className={selected === 3 ? 'active' : null}
                       onClick={() => {
                         selectClick(3);
-                        localStorage.setItem("bank", "BNI")
+                        localStorage.setItem("bank", "BCA");
                       }}
                     >
-                      <div className="cont">
-                        <div className="bank">BNI</div>
-                        <h5>BNI Transfer</h5>
+                      <div className="mt-3" >
+                        <button className="bank btn btn-outline-secondary">BCA</button>
+                        <span className='ms-3' >BCA Transfer</span>
+                      
+                      {selected === 3 ? <img src={Check} className="float-check-right mt-2" alt="check-list" /> : null}
                       </div>
-                      {selected === 3 ? <img src={Check} alt="check-list" /> : null}
-                    </li>
-                  
-                  </ul>
-              {/* <ListGroup variant="flush border-bottom border-top-0 list-group-payment">
-                <ListGroup.Item>
-                  <Button
-                    onClick={() => setChange(!change)}
-                    variant="outline-dark me-3 button-tf"
-                  >
-                    BCA
-                  </Button>
-                  BCA Transfer
-                  {change ? <FaCheck className="float-check-right mt-2" /> : ""}
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Button
-                    onClick={() => setChange1(!change1)}
-                    variant="outline-dark me-3 button-tf"
-                  >
-                    BNI
-                  </Button>
-                  BNI Transfer
-                  {change1 ? (
-                    <FaCheck className="float-check-right mt-2" />
-                  ) : (
-                    ""
-                  )}
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Button
-                    onClick={() => setChange2(!change2)}
-                    variant="outline-dark me-3 button-tf"
-                  >
-                    Mndiri
-                  </Button>
-                  Mndiri Transfer
-                  {change2 ? (
-                    <FaCheck className="float-check-right mt-2" />
-                  ) : (
-                    ""
-                  )}
-                </ListGroup.Item>
-              </ListGroup> */}
+                    </div >
+                  </ListGroup.Item> 
+              </ListGroup>
             </Card>
           </div>
           <div className="col-lg-5">
