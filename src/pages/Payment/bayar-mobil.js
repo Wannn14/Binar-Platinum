@@ -81,7 +81,7 @@ const Bayar = () => {
                       }}
                     >
                       <div className="mt-3" >
-                        <button className="bank btn btn-outline-secondary">BCA</button>
+                        <button className="bank btn btn-outline-secondary w-25">BCA</button>
                         <span className='ms-3' >BCA Transfer</span>
                       
                       {selected === 1 ? <img src={Check} className="float-check-right mt-2" alt="check-list" /> : null}
@@ -93,12 +93,12 @@ const Bayar = () => {
                       className={selected === 2 ? 'active' : null}
                       onClick={() => {
                         selectClick(2);
-                        localStorage.setItem("bank", "BCA");
+                        localStorage.setItem("bank", "Mandiri");
                       }}
                     >
                       <div className="mt-3" >
-                        <button className="bank btn btn-outline-secondary">BCA</button>
-                        <span className='ms-3' >BCA Transfer</span>
+                        <button className="bank btn btn-outline-secondary w-25">Mandiri</button>
+                        <span className='ms-3' >Mandiri Transfer</span>
                       
                       {selected === 2 ? <img src={Check} className="float-check-right mt-2" alt="check-list" /> : null}
                       </div>
@@ -110,12 +110,12 @@ const Bayar = () => {
                       className={selected === 3 ? 'active' : null}
                       onClick={() => {
                         selectClick(3);
-                        localStorage.setItem("bank", "BCA");
+                        localStorage.setItem("bank", "BNI");
                       }}
                     >
                       <div className="mt-3" >
-                        <button className="bank btn btn-outline-secondary">BCA</button>
-                        <span className='ms-3' >BCA Transfer</span>
+                        <button className="bank btn btn-outline-secondary w-25">BNI</button>
+                        <span className='ms-3' >BNI Transfer</span>
                       
                       {selected === 3 ? <img src={Check} className="float-check-right mt-2" alt="check-list" /> : null}
                       </div>
