@@ -11,6 +11,7 @@ import Tos from "../components/Viewpdf";
 import ChartDashboard from "../pages/Dashboard/Chart";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
+import Dashboard from '../pages/Dashboard/Dashboard';
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -68,6 +69,10 @@ const Routes = () => {
       path: "/tos",
       element: <Tos />,
     },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
+    }
 
     // {
     //   path: "*",
