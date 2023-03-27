@@ -11,6 +11,8 @@ import Tos from "../components/Viewpdf";
 import ChartDashboard from "../pages/Dashboard/Chart";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
+import Carlist from '../pages/carlist/carlist';
+import AddCar from "../pages/AddCar/AddCar";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -31,6 +33,7 @@ const Routes = () => {
       path: "/chart",
       element:  <ChartDashboard />
     },
+   
     {
       path: "/",
       element: isAuth ? <LandingPage /> : <Navigate to="/login" />,
@@ -43,6 +46,7 @@ const Routes = () => {
       path: "/etiket",
       element: isAuth ?  <Etiket /> : <Navigate to="/login" />,
     },
+  
     {
       path: "/cari-mobil",
       element: isAuth ?  <CariMobil /> : <Navigate to="/login" />,
@@ -69,6 +73,14 @@ const Routes = () => {
       element: <Tos />,
     },
 
+  {
+    path: "carlist",
+    element: <Carlist />,
+  },
+  {
+    path: "AddCar",
+    element: <AddCar />,
+  },
     // {
     //   path: "*",
     //   element: <Navigate to={isAuth ? "" : "/login"} />,
