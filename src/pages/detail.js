@@ -64,6 +64,7 @@ const [range, setRange] = useState([ new Date(), add( new Date(), { days: 7 } ) 
   const dataKurang = range[1]-range[0];
   const dataSamain = Math.ceil(dataKurang / (1000 * 3600 * 24)) 
 console.log(dataSamain,'ini jumlah tanggal')
+const total= detail.price * dataSamain;
 
   return (
     <>
@@ -164,7 +165,7 @@ console.log(dataSamain,'ini jumlah tanggal')
                   </div>
                 <div className="nominal">
                   <h4>Total</h4>
-                  <h4>Rp {detail.price} / Hari</h4>
+                  <h4>Rp {total.toLocaleString('id-ID')} / Hari</h4>
                 </div>
                 <a href={`/pembayaran`} className="btn btn-success btn-detail">
                   Lanjutkan Pembayaran

@@ -8,7 +8,7 @@ import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
 import Tos from "../components/Viewpdf";
-import ChartDashboard from "../pages/Dashboard/Chart";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
 import Carlist from '../pages/carlist/carlist';
@@ -34,11 +34,6 @@ const Routes = () => {
       path: "/",
       element: <LandingPage />,
     },
-    {
-      path: "/chart",
-      element:  <ChartDashboard />
-    },
-   
     {
       path: "/",
       element: isAuth ? <LandingPage /> : <Navigate to="/login" />,
@@ -77,13 +72,17 @@ const Routes = () => {
       path: "/tos",
       element: <Tos />,
     },
+    {
+      path: "/dashboard",
+      element: <Dashboard />,
+    },
 
   {
     path: "carlist",
     element: <Carlist />,
   },
   {
-    path: "AddCar",
+    path: "/add-car",
     element: <AddCar />,
   },
     // {

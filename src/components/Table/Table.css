@@ -1,0 +1,26 @@
+.section-table {
+    margin-top: -48px;
+    overflow: hidden;
+    background: rgb(244, 245, 247);
+
+}
+.row-table{
+    overflow: hidden;
+    background: rgb(244, 245, 247);
+    display: flex;
+    justify-content: right;
+    margin-left: 320px;
+    width: 1111px;
+   
+}
+.main-table {
+    padding: 0px;
+}
+.table-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+.table-limit{
+    width: 70px;
+}
