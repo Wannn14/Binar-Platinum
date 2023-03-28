@@ -1,0 +1,20 @@
+.login-right{
+    padding: 0 55px;
+    margin: auto;
+}
+.login-left{
+    padding: 0px;
+}
+.login-logo,h3.login-title {
+    margin-bottom: 32px;
+}
+
+@media (max-width:540px) {
+    .login-right{
+        padding: 30px 16px;
+        width: 328px;
+    }
+    .login-left{
+        width: 100%;
+    }
+}

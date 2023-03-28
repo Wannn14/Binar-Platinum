@@ -13,6 +13,7 @@ import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
 import Carlist from '../pages/carlist/carlist';
 import AddCar from "../pages/AddCar/AddCar";
+import LoginAdmin from "../pages/LoginAdmin/LoginAdmin";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -20,6 +21,10 @@ const Routes = () => {
     {
       path: "login",
       element: <Login />,
+    },
+    {
+      path: "login-admin",
+      element: <LoginAdmin />,
     },
     {
       path: "/register",
