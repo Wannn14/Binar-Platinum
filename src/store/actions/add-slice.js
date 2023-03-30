@@ -1,7 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios';
-const initialState = {isAuth: !! localStorage.getItem('access_token')}
-const addData= createAsyncThunk('auth/login',async(payload)=>{
+const initialState = {isAuthAdmin: !! localStorage.getItem('access_token')}
+const addData= createAsyncThunk('add/car',async(payload)=>{
     const token = localStorage.getItem ('access_token')
     const config = {
         headers:{
@@ -30,7 +30,7 @@ const addSlice= createSlice({
     initialState,
     reducers:{
         addCars(state,action){
-            state.isAuth = action.payload
+            state.isAuthAdmin = action.payload
 
         }
     },

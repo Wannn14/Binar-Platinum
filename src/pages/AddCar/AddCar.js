@@ -68,7 +68,7 @@ const Carditem = () => {
 
               <Form.Select aria-label="Default select example"  onChange={handleKetegori}>
                   <option>Kategori</option>
-                  <option value="small1">small</option>
+                  <option value="small">small</option>
                   <option value="medium">medium</option>
                   <option value="large">large</option>
               </Form.Select>
@@ -83,8 +83,8 @@ const Carditem = () => {
 
               <Form.Select aria-label="Default select example" onChange={handleStatus}>
                   <option>Status</option>
-                  <option value="true">true</option>
-                  <option value="false">false</option>
+                  <option value="1">true</option>
+                  <option value="0">false</option>
               </Form.Select>
 
               <Form.Group controlId="formFile" className="mb-3">

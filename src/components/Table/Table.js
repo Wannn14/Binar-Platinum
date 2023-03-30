@@ -18,7 +18,8 @@ const Table = () => {
     let items = [];
     
     useEffect(() => {
-        dispatch(dataTable({pagesize,page}));
+        dispatch(dataTable({pagesize,page}))
+
     }, [])
 
     useEffect (()=>{

@@ -1,7 +1,7 @@
 import {createSlice,createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios';
-const initialState = {isAuth: !! localStorage.getItem('access_token')}
-const loginAdmin= createAsyncThunk('auth/login',async(payload)=>{
+const initialState = {isAuthAdmin: !! localStorage.getItem('access_token')}
+const loginAdmin= createAsyncThunk('auth/loginAdmin',async(payload)=>{
     try{
         const getApi = await axios.post ('https://bootcamp-rent-cars.herokuapp.com/admin/auth/login',payload) 
 
@@ -18,14 +18,9 @@ const authAdminSlice= createSlice({
     initialState,
     reducers:{
         login(state,action){
-            state.isAuth = action.payload
+            state.isAuthAdmin = action.payload
 
         },
-        logout (state,action){
-            localStorage.removeItem('access_token')
-            localStorage.removeItem('role')
-            state.isAuth = action.payload
-        }
     },
     extraReducers:(builder)=>{
         builder.addCase(loginAdmin.fulfilled,(state,action)=>{
@@ -45,6 +40,6 @@ const authAdminSlice= createSlice({
     }
 })
 
-export const {login,logout} = authAdminSlice.actions
+export const {login} = authAdminSlice.actions
 export {loginAdmin}
 export default authAdminSlice

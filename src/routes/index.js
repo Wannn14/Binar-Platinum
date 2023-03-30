@@ -12,8 +12,9 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
 import Uploadpayment from "../pages/Payment02/uploadpayment";
-import Carlist from '../pages/carlist/carlist';
 import AddCar from "../pages/AddCar/AddCar";
+import ViewCar from "../components/ViewCar/ViewCar";
+import EditCar from "../pages/EditCar/EditCar";
 import LoginAdmin from "../pages/LoginAdmin/LoginAdmin";
 import {useSelector} from "react-redux";
 const Routes = () => {
@@ -81,14 +82,17 @@ const Routes = () => {
       path: "/dashboard",
       element: <Dashboard />,
     },
-
   {
-    path: "/carlist",
-    element: <Carlist />,
+    path: "/view-car",
+    element:  <ViewCar />
   },
   {
     path: "/add-car",
     element: <AddCar />,
+  },
+  {
+    path: "/edit-car/:id",
+    element: <EditCar />,
   },
     // {
     //   path: "*",

@@ -79,7 +79,7 @@ const Bayar = () => {
                       className={selected === 1 ? 'active' : null} 
                       onClick={() => {
                         selectClick(1);
-                        localStorage.setItem("bank", "BCA");
+                        // localStorage.setItem("bank", "BCA");
                       }}
                     >
                       <div className="mt-3" >
@@ -95,7 +95,7 @@ const Bayar = () => {
                       className={selected === 2 ? 'active' : null}
                       onClick={() => {
                         selectClick(2);
-                        localStorage.setItem("bank", "Mandiri");
+                        // localStorage.setItem("bank", "Mandiri");
                       }}
                     >
                       <div className="mt-3" >
@@ -112,7 +112,7 @@ const Bayar = () => {
                       className={selected === 3 ? 'active' : null}
                       onClick={() => {
                         selectClick(3);
-                        localStorage.setItem("bank", "BNI");
+                        // localStorage.setItem("bank", "BNI");
                       }}
                     >
                       <div className="mt-3" >
