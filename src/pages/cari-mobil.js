@@ -117,7 +117,7 @@ const Hasil = () => {
               {cars.map((car, index) => {
                 return (
                   <div className="col-lg-4" key={index}>
-                    <div className="card">
+                    <div className="card h-100">
                       <div className="card-thumbnail">
                         <img
                           src={
@@ -142,7 +142,7 @@ const Hasil = () => {
                         </p>
                       </div>
                       <Link
-                        className="btn btn-success d-block btn-pilih-mobil"
+                        className="btn btn-success d-block btn-pilih-mobil mt-auto"
                         to={`/Detail/${car.id}`}
                       >
                         Pilih Mobil

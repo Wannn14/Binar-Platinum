@@ -8,10 +8,13 @@ import Filter from "../pages/fillter";
 import Register from "../pages/Register/register";
 import BayarMobil from "../pages/Payment/bayar-mobil";
 import Tos from "../components/Viewpdf";
-import ChartDashboard from "../pages/Dashboard/Chart";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import Etiket from "../pages/E-Tiket/Etiket";
 import Payment02 from "../pages/Payment02/payment02";
-import Dashboard from '../pages/Dashboard/Dashboard';
+import Uploadpayment from "../pages/Payment02/uploadpayment";
+import Carlist from '../pages/carlist/carlist';
+import AddCar from "../pages/AddCar/AddCar";
+import LoginAdmin from "../pages/LoginAdmin/LoginAdmin";
 import {useSelector} from "react-redux";
 const Routes = () => {
   const {isAuth} = useSelector((state) => state.authStore);
@@ -21,16 +24,16 @@ const Routes = () => {
       element: <Login />,
     },
     {
+      path: "login-admin",
+      element: <LoginAdmin />,
+    },
+    {
       path: "/register",
       element: <Register />,
     },
     {
       path: "/",
       element: <LandingPage />,
-    },
-    {
-      path: "/chart",
-      element:  <ChartDashboard />
     },
     {
       path: "/",
@@ -44,6 +47,7 @@ const Routes = () => {
       path: "/etiket",
       element: isAuth ?  <Etiket /> : <Navigate to="/login" />,
     },
+  
     {
       path: "/cari-mobil",
       element: isAuth ?  <CariMobil /> : <Navigate to="/login" />,
@@ -66,14 +70,26 @@ const Routes = () => {
       element: <Payment02 />,
     },
     {
+      path: "Uploadpayment",
+      element: <Uploadpayment />,
+    },
+    {
       path: "/tos",
       element: <Tos />,
     },
     {
       path: "/dashboard",
       element: <Dashboard />,
-    }
+    },
 
+  {
+    path: "/carlist",
+    element: <Carlist />,
+  },
+  {
+    path: "/add-car",
+    element: <AddCar />,
+  },
     // {
     //   path: "*",
     //   element: <Navigate to={isAuth ? "" : "/login"} />,

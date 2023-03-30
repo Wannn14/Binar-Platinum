@@ -13,6 +13,8 @@ const Bayar = () => {
   const [show, setShow] = useState(true);
   const [selected, setSelected] = useState();
 
+  
+
 
   const selectClick = (index) => { setSelected(index) };
 

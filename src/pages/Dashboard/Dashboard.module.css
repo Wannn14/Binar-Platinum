@@ -1,0 +1,28 @@
+.containerDashboard {
+    min-height: 100vh;
+    background: #f4f5f7;
+  }
+  
+  .colDashboard {
+    width: 20.14%;
+    min-width: 218px;
+    max-width: 290px;
+  }
+  
+  .dataGraphTable {
+    margin-left: 320px;
+    margin-top: 30px;
+  }
+  
+  @media (max-width: 576px) {
+    .dataGraphTable {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .dataGraphTable {
+      margin-left: 0;
+    }
+  }
+  

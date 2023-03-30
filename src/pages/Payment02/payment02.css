@@ -59,6 +59,26 @@
   margin-left: -15px !important ;
 }
 
+/* upload image */
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.form-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #1475cf;
+  height: 250px;
+  width: 400px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 @media (max-width:996px) {
   .payment {
     height: 325px;

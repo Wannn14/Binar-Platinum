@@ -19,23 +19,13 @@ import {
 } from "react-bootstrap";
 import {FaArrowLeft} from "react-icons/fa";
 import CountDown from "./countdown";
-import {useNavigate} from "react-router-dom";
+import Countdownone from "./countdown1";
+import Upload from './upload';
+
 
 const Payment02 = () => {
 
-  const navigate = useNavigate()
-  // const steps = ['Pilih Metode', 'Bayar', 'Tiket'];
-
-  // const [change, setChange] = useState("");
-
-  // const [activeStep, setActiveStep] = useState(0);
   
-  // const changeValue = () => {
-  //   setChange("Konfirmasi Pembayaran");
-  // };
-
-  const goToUpload = () => navigate('/uploadPayment')
-
   return (
     <>
       <Header />
@@ -73,35 +63,7 @@ const Payment02 = () => {
                 </div>
               </div>
             </Card>
-          </Col>
-          <div className="col-lg-5">
-            <Card className="p-3 mt-3">
-
-            
-              <p className="mb-5">Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p> 
-              <Button className="w-100 btn-success" onClick={goToUpload}>konfirmasi Pembayaran</Button>
-            
-          
-
-
-              {/* <p>
-                {!change
-                  ? "Klik konfirmasi pembayaran untuk mempercepat proses pengecekan"
-                  : change}
-              </p>
-              <Button
-                className="w-100 btn-success"
-                onClick={() => changeValue()}
-              >
-                Konfirmasi Pembayaran
-              </Button> */}
-            </Card>
-          </div>
-        </Row>
-
-        <Row className="mt-3">
-          <div className="col-lg-7">
-            <Card className="p-3">
+            <Card className=" mt-3 p-3">
               <p className="fw-bold">Lakukan Transfer Ke</p>
               <ListGroup variant="flush border-bottom border-top-0 list-group-payment">
                 <ListGroup.Item>
@@ -148,14 +110,7 @@ const Payment02 = () => {
                 </ListGroup.Item>
               </ListGroup>
             </Card>
-          </div>
-        </Row>
-      </Container>
-
-      <Container>
-        <Row className="mt-3">
-          <Col lg={7}>
-            <Card>
+            <Card className="mt-5" >
               <Card.Title className="m-3">Intruksi Pembayaran</Card.Title>
               <Tabs
                 defaultActiveKey="home"
@@ -244,9 +199,45 @@ const Payment02 = () => {
               </Tabs>
             </Card>
           </Col>
+          <div className="col-lg-5">
+            <Card className="p-3 mt-3">
+                
+            <div className="d-flex justify-content-between">
+                <div>
+                  <p className="fw-bold">Konfirmasi Pembayaran</p>                 
+                </div>
+                <div>
+                    <Countdownone duration={10 * 60 * 1000} /> 
+                </div>
+            </div>
+                <p>Terima kasih telah melakukan konfirmasi pembayaran. 
+                Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.
+                </p>
+                <p className="fs-5">Upload Bukti Pembayaran</p>
+                <p>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu
+                </p>
+                
+                <Upload className="mt-3 mb-5 d-flex"/>
+                
+            
+          
+
+
+              {/* <p>
+                {!change
+                  ? "Klik konfirmasi pembayaran untuk mempercepat proses pengecekan"
+                  : change}
+              </p>
+              <Button
+                className="w-100 btn-success"
+                onClick={() => changeValue()}
+              >
+                Konfirmasi Pembayaran
+              </Button> */}
+            </Card>
+          </div>
         </Row>
       </Container>
-
       <Foot />
     </>
   );
