@@ -78,7 +78,10 @@ main{
   cursor: pointer;
   border-radius: 5px;
 }
-
+.arrowleft{
+  width: 25px;
+  height: 40px;
+}
 @media (max-width:996px) {
   .payment {
     height: 325px;

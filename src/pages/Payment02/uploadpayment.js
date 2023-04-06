@@ -21,11 +21,27 @@ import {FaArrowLeft} from "react-icons/fa";
 import CountDown from "./countdown";
 import Countdownone from "./countdown1";
 import Upload from './upload';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { useNavigate } from "react-router-dom";
 
 
 const Payment02 = () => {
 
+  const bank = localStorage.getItem('bank');
+
+  const idOrder = JSON.parse(localStorage.getItem("detailCar"));
+
+  const navigate = useNavigate();
+
+  // const [value, setValue] = React.useState('some\ntext');
+  // const [copied, setCopied] = React.useState(false);
   
+  // const getCopy = React.useCallback(({target: {innerText}}) => {
+  //   console.log(`Clicked on "${innerText}"!`);
+  // }, [])
+  
+  
+
   return (
     <>
       <Header />
@@ -33,13 +49,31 @@ const Payment02 = () => {
         <div className="container">
           <Col>
             <Row>
-              <div className="col-lg-8">
-                <button className="p-3 fs-6 fw-bold btn-previous">
-                  <FaArrowLeft className="me-3 mb-1" />
-                  Pembayaran
+              <div className="col">
+                <button className="p-3 fs-6 fw-bold btn-previous"  onClick={()=>navigate("/pembayaran")}>
+                  <FaArrowLeft className="me-3 mb-1 arrowleft" />
+                 
                 </button>
+                
               </div>
-              <div className="col-lg-4 ">
+              <div className="col-lg-5" >
+                <p className="fw-bold fs-4 lh-base">
+                  {(() => {
+                        switch (bank) {
+                          case "BNI":
+                            return "BNI Transfer";
+                          case "Mandiri":
+                            return "Mandiri Transfer";
+                          case "BCA":
+                            return "BCA Transfer";
+                          default:
+                            return "-";
+                        }
+                      })()}
+                </p>
+                <p className="fs-5">Order ID: {idOrder.id}</p>
+                </div>
+              <div className="col-lg-6 ">
                 <ul className="menu d-flex justify-content-center">
                   <img src={Frame} className="mt-3" alt=""></img>
                 </ul>
@@ -72,10 +106,23 @@ const Payment02 = () => {
                       variant="outline-dark button-tf"
                       className="disable"
                     >
-                      BCA
+                      {bank}
                     </Button>
                     <div className="Pemilik">
-                      <p className="fw-bold">BCA Transfer </p>
+                      <p className="fw-bold">
+                      {(() => {
+                      switch (bank) {
+                        case "BNI":
+                          return "BNI Transfer";
+                        case "Mandiri":
+                          return "Mandiri Transfer";
+                        case "BCA":
+                          return "BCA Transfer";
+                        default:
+                          return "-";
+                      }
+                    })()}
+                      </p>
                       <p> a.n Binar Car Rental</p>
                     </div>
                   </div>
@@ -84,11 +131,14 @@ const Payment02 = () => {
                     <FormControl
                       className="disable"
                       placeholder="1387653928"
-                    ></FormControl>
+                      // value={value}
+                    >
+                    </FormControl>
                     <Button
                       variant="outline-secondary"
                       id="button-addon2"
                       className="disable"
+                      // onClick={getCopy}
                     >
                       <img src={Copy} alt="Copy"></img>
                     </Button>

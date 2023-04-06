@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../../components/header";
 import Foot from "../../components/footer";
 import "./bayar.css";
@@ -7,14 +7,61 @@ import {Row, Col, Button, Container, Card, ListGroup} from "react-bootstrap";
 import {FaArrowLeft, FaAngleUp, FaAngleDown} from "react-icons/fa";
 import {FiUsers} from "react-icons/fi";
 import Check from '../../assets/image/check.svg';
+import axios from "axios";
+import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 
 const Bayar = () => {
   const [show, setShow] = useState(true);
   const [selected, setSelected] = useState();
+  const [cars, setCars] = useState('');
 
+  const baseUrl = "https://bootcamp-rent-cars.herokuapp.com/customer"
   
+  
+  const getCars = () => {
+      const token = localStorage.getItem ('access_token')
+      const config = {
+          headers:{
+              access_token: token
+          },
+         
+      }
+    const detailCar = localStorage.getItem("detailCar")
+    console.log('disini saya console', detailCar)
+    const detailCarsParsed = JSON.parse(detailCar)
+    console.log("saya console", detailCarsParsed)
+    axios
+        .get(`${baseUrl}/order/${detailCarsParsed.id}`,config)
+        .then((response) => {
+          setCars(response.data)
+         console.log(response.data)
+        })
+        .catch((error) => console.log(error));
+      }
+      
+      useEffect(()=>{getCars()},[])
 
+    const getCarCategory = (Car) => {
+      if (Car && Car.Car){
+        switch (Car.Car.category) {
+          case "small":
+            return "2-4 orang";
+          case "medium":
+            return "4-6 orang";
+          case "large":
+            return "6-8 orang";
+          default:
+            return "-";
+        }
+      }
+      return "-"
+
+    }
+      
+  
+  const navigate = useNavigate();
 
   const selectClick = (index) => { setSelected(index) };
 
@@ -27,7 +74,7 @@ const Bayar = () => {
           <Col>
             <Row>
               <div className="col-lg-8">
-                <button className="fs-6 fw-bold btn-previous">
+                <button className="fs-6 fw-bold btn-previous" onClick={() => navigate ("/Detail/:id")}>
                   <FaArrowLeft className="me-3 mb-1" />
                   Pembayaran
                 </button>
@@ -47,19 +94,25 @@ const Bayar = () => {
             <p className="fw-bold">Detail Pesananmu</p>
             <Col>
               <label>Nama Mobil</label>
-              <p className="disable">Innova</p>
+              <p className="disable">{(cars && cars.Car) ? cars.Car.name : ""}</p>
             </Col>
             <Col>
               <label>Kategori</label>
-              <p className="disable">6 - 8 orang</p>
+              <p className="disable">
+              {getCarCategory(cars)}
+              </p>
             </Col>
             <Col>
               <label>Tanggal Mulai Sewa</label>
-              <p className="disable">2 Jun 2022</p>
+              <p className="disable">
+                {moment(cars.start_rent_at).format("DD MMMM YYYY")}
+              </p>
             </Col>
             <Col>
               <label>Tanggal Akhir Sewa</label>
-              <p className="disable">8 Jun 2022</p>
+              <p className="disable">
+              {moment(cars.finish_rent_at).format("DD MMMM YYYY")}
+              </p>
             </Col>
           </Row>
         </Card>
@@ -95,7 +148,7 @@ const Bayar = () => {
                       className={selected === 2 ? 'active' : null}
                       onClick={() => {
                         selectClick(2);
-                        // localStorage.setItem("bank", "Mandiri");
+                        localStorage.setItem("bank", "Mandiri");
                       }}
                     >
                       <div className="mt-3" >
@@ -112,7 +165,7 @@ const Bayar = () => {
                       className={selected === 3 ? 'active' : null}
                       onClick={() => {
                         selectClick(3);
-                        // localStorage.setItem("bank", "BNI");
+                        localStorage.setItem("bank", "BNI");
                       }}
                     >
                       <div className="mt-3" >
@@ -129,9 +182,10 @@ const Bayar = () => {
           <div className="col-lg-5">
             <Card className="p-3">
               <Card.Body>
-                <p className="fw-bold">Innova</p>
+                <p className="fw-bold">{(cars && cars.Car) ? cars.Car.name : ""}</p>
                 <p className="disable">
-                  <FiUsers className="mb-1 me-2" />6 - 8 orang
+                  <FiUsers className="mb-1 me-2" />
+                  {getCarCategory(cars)}
                 </p>
                 <div className="total">
                   <button
@@ -149,13 +203,13 @@ const Bayar = () => {
                       <FaAngleDown className="mt-1 ms-2" />
                     )}
                   </button>
-                  <p className="fw-bold">Rp 3.500.000</p>
+                  <p className="fw-bold">Rp. {cars.total_price}</p>
                 </div>
                 <div className="collapse" id="collapseExample">
                   <h6 className="fw-bold ">Harga</h6>
                   <div className="total1 text-indent">
-                    <li>Sewa Mobil Rp.500.000 x 7 Hari</li>
-                    <span>Rp 3.500.000</span>
+                    <li>Sewa Mobil {cars.price} x 7 Hari</li>
+                    <span>Rp {cars.total_price}</span>
                   </div>
                   <h6 className="fw-bold mt-4 ">Biaya Lainnya</h6>
                   <div className="total1 text-indent">
@@ -173,10 +227,10 @@ const Bayar = () => {
                   </div>
                   <div className="total">
                     <p>Total</p>
-                    <p className="fw-bold">Rp 3.500.000</p>
+                    <p className="fw-bold">Rp. {cars.total_price}</p>
                   </div>
                 </div>
-                <Button className="w-100 btn-success">Bayar</Button>
+                <Button className="w-100 btn-success" onClick={()=>navigate("/uploadpayment")}>Bayar</Button>
               </Card.Body>
             </Card>
           </div>

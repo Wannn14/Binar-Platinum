@@ -13,6 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import moment from "moment";
 import { add, endOfDay, min, startOfDay } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const Detail = () => {
 
@@ -62,18 +63,36 @@ const [range, setRange] = useState([ new Date(), add( new Date(), { days: 7 } ) 
     }
 
     setRange(range);
-    console.log()
+    console.log(range)
   };
   const dataKurang = range[1]-range[0];
   const dataSamain = Math.ceil(dataKurang / (1000 * 3600 * 24)) 
 console.log(dataSamain,'ini jumlah tanggal')
 const total= detail.price * dataSamain;
 
-const goToPembayaran = () => {
-  localStorage.setItem("detailCar",JSON.stringify(detail))
-  navigate('/pembayaran')
-}
+// const goToPembayaran = () => {
+//   localStorage.setItem("detailCar",JSON.stringify(detail))
+//   navigate('/pembayaran')
+// }
 
+const goToPembayaran = async () => {
+
+  const token = localStorage.getItem ('access_token')
+  const config = {
+      headers:{
+          access_token: token
+      }
+  }
+  const body = {
+    start_rent_at: moment(range[0]).format('YYYY-MM-DD'),
+    finish_rent_at: moment (range[1]).format('YYYY-MM-DD'),
+    car_id:id
+  }
+  const {data} =  await Axios.post(`${baseUrl}/order`, body, config)
+  localStorage.setItem("detailCar",JSON.stringify(data))
+    navigate('/pembayaran')
+
+}
   return (
     <>
       <Header />
@@ -193,5 +212,6 @@ const goToPembayaran = () => {
     </>
   );
 };
+
 
 export default Detail;

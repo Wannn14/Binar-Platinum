@@ -3,12 +3,14 @@ import {Button} from 'react-bootstrap';
 import './payment02.css';
 import { FiImage } from "react-icons/fi";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const Upload = () => {
 
     const [image, setImage] = useState(null)
     const [fileName, setFileName] = useState ("No selected File")
+    const navigate = useNavigate();
    
     const baseUrl = "https://bootcamp-rent-cars.herokuapp.com/customer";
 
@@ -23,7 +25,12 @@ const Upload = () => {
         const formData = new FormData()
         formData.append("slip", image)
         await axios.put(`${baseUrl}/order/${carData.id}/slip`, formData, config)
+        navigate('/etiket')
+
     }
+
+
+    
 
     return (
         <>
@@ -51,7 +58,7 @@ const Upload = () => {
 
             
         </main>
-       <Button onClick={uploadImage} className="btn btn-success mt-3">Upload Gambar</Button>
+       <Button onClick={uploadImage} className="btn btn-success mt-3" disabled={!image}>Upload Gambar</Button>
         </>
     )
 }

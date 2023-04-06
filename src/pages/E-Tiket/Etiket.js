@@ -8,6 +8,7 @@ import {FaArrowLeft,FaCheckCircle} from "react-icons/fa";
 import { BsDownload } from "react-icons/bs";
 import pdf from '../../assets/pdf/dummy_tos.pdf'
 import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
+import { useNavigate } from 'react-router-dom';
 const MyDoc = () => (
     <Document>
       <Page>
@@ -16,6 +17,10 @@ const MyDoc = () => (
   )
 
 const Etiket = () => {
+
+const navigate = useNavigate();
+const idOrder = JSON.parse(localStorage.getItem("detailCar"))
+
   return (
     <>
     <Header />
@@ -24,12 +29,12 @@ const Etiket = () => {
           <Col>
             <Row>
               <div className="col-lg-8 etiket-btn-back">
-                <button className="p-3 fs-6 fw-bold btn-previous">
+                <button className="p-3 fs-6 fw-bold btn-previous" onClick={() => navigate('/uploadpayment')}>
                   <FaArrowLeft className="me-3 mb-1" />
                   Tiket
                 </button>
                 <br></br>
-                <span>Order ID : xxxxx</span>
+                <span>Order ID : {idOrder.id}</span>
               </div>
               <div className="col-lg-4 ">
                 <ul className="menu d-flex justify-content-center">
