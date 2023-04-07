@@ -2,7 +2,7 @@ import React from 'react'
 import "./Etiket.css";
 import Foot from "../../components/footer";
 import Header from "../../components/header";
-import Step from "../../assets/image/step.png";
+import Steper from "../../assets/image/step3.png";
 import {Row, Col} from "react-bootstrap";
 import {FaArrowLeft,FaCheckCircle} from "react-icons/fa";
 import { BsDownload } from "react-icons/bs";
@@ -29,17 +29,17 @@ const idOrder = JSON.parse(localStorage.getItem("detailCar"))
           <Col>
             <Row>
               <div className="col-lg-8 etiket-btn-back">
-                <button className="p-3 fs-6 fw-bold btn-previous" onClick={() => navigate('/uploadpayment')}>
-                  <FaArrowLeft className="me-3 mb-1" />
+                <button className="p-3 fs-5 lh-base fw-bold btn-previous" onClick={() => navigate('/uploadpayment')}>
+                  <FaArrowLeft className="me-3 mb-1 fs-5" />
                   Tiket
                 </button>
                 <br></br>
-                <span>Order ID : {idOrder.id}</span>
+                <span className='fs-6'>Order ID : {idOrder.id}</span>
               </div>
               <div className="col-lg-4 ">
                 <ul className="menu d-flex justify-content-center">
                   
-                  <img src={Step} className="mt-3" alt=""></img>
+                  <img src={Steper} className="mt-3" alt=""></img>
                 </ul>
               </div>
             </Row>

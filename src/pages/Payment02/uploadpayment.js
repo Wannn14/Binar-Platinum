@@ -21,7 +21,7 @@ import {FaArrowLeft} from "react-icons/fa";
 import CountDown from "./countdown";
 import Countdownone from "./countdown1";
 import Upload from './upload';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+// import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,6 +32,18 @@ const Payment02 = () => {
   const idOrder = JSON.parse(localStorage.getItem("detailCar"));
 
   const navigate = useNavigate();
+
+  const [copyTex, setCopyText] = useState('');
+  const handleCopy = () => {
+    navigator.clipboard.writeText(copyTex)
+    alert("copyed")
+  }
+
+  const [copyTex1, setCopyText1] = useState('');
+  const handleCopy1 = () => {
+    navigator.clipboard.writeText(copyTex1)
+    alert("copyed")
+  }
 
   // const [value, setValue] = React.useState('some\ntext');
   // const [copied, setCopied] = React.useState(false);
@@ -57,7 +69,7 @@ const Payment02 = () => {
                 
               </div>
               <div className="col-lg-5" >
-                <p className="fw-bold fs-4 lh-base">
+                <p className="fw-bold fs-5 lh-base">
                   {(() => {
                         switch (bank) {
                           case "BNI":
@@ -71,7 +83,7 @@ const Payment02 = () => {
                         }
                       })()}
                 </p>
-                <p className="fs-5">Order ID: {idOrder.id}</p>
+                <p className="fs-6">Order ID: {idOrder.id}</p>
                 </div>
               <div className="col-lg-6 ">
                 <ul className="menu d-flex justify-content-center">
@@ -131,14 +143,15 @@ const Payment02 = () => {
                     <FormControl
                       className="disable"
                       placeholder="1387653928"
-                      // value={value}
+                      value={copyTex}
+                      onChange={(e) => setCopyText(e.target.value)}
                     >
                     </FormControl>
                     <Button
                       variant="outline-secondary"
                       id="button-addon2"
                       className="disable"
-                      // onClick={getCopy}
+                      onClick={handleCopy}
                     >
                       <img src={Copy} alt="Copy"></img>
                     </Button>
@@ -148,11 +161,14 @@ const Payment02 = () => {
                     <FormControl
                       className="disable"
                       placeholder="Rp. 3.500.000"
+                      value={copyTex1}
+                      onChange={(e) => setCopyText1(e.target.value)}
                     ></FormControl>
                     <Button
                       variant="outline-secondary"
                       id="button-addon2"
                       className="disable"
+                      onClick={handleCopy1}
                     >
                       <img src={Copy} alt="Copy"></img>
                     </Button>

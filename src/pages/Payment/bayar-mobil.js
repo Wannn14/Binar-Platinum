@@ -132,7 +132,7 @@ const Bayar = () => {
                       className={selected === 1 ? 'active' : null} 
                       onClick={() => {
                         selectClick(1);
-                        // localStorage.setItem("bank", "BCA");
+                        localStorage.setItem("bank", "BCA");
                       }}
                     >
                       <div className="mt-3" >
@@ -208,7 +208,7 @@ const Bayar = () => {
                 <div className="collapse" id="collapseExample">
                   <h6 className="fw-bold ">Harga</h6>
                   <div className="total1 text-indent">
-                    <li>Sewa Mobil {cars.price} x 7 Hari</li>
+                    <li>Sewa Mobil {(cars && cars.Car) ? cars.Car.price : ""}  x 7 Hari</li>
                     <span>Rp {cars.total_price}</span>
                   </div>
                   <h6 className="fw-bold mt-4 ">Biaya Lainnya</h6>
