@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import Header from "../components/header";
 import Foot from "../components/footer";
 import axios from "axios";
@@ -13,10 +13,28 @@ import notfound from "../assets/image/4x4.png";
 
 const Hasil = () => {
   const [cars, setCars] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [emptyData, setEmptyData] = useState(false);
 
   const API_URL = "https://bootcamp-rent-cars.herokuapp.com";
+
+  const getCars = () => {
+    axios.get(`${API_URL}/customer/car`)
+      .then((response) => {
+        setCars(response.data)
+        setLoading(false)
+      })
+      .catch((error) => console.log(error));
+  }
+
+  const fetch = useRef(true);
+
+  useEffect(() => {
+    if (fetch.current) {
+      getCars()
+      fetch.current = false
+    }
+  }, [])
 
   const namaMobil = useRef("");
   const category = useRef("");
