@@ -9,6 +9,8 @@ import { BsDownload } from "react-icons/bs";
 import pdf from '../../assets/pdf/dummy_tos.pdf'
 import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer'
 import { useNavigate } from 'react-router-dom';
+
+
 const MyDoc = () => (
     <Document>
       <Page>

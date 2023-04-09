@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../../components/header";
 import Foot from "../../components/footer";
 import "./payment02.css";
@@ -23,13 +23,14 @@ import Countdownone from "./countdown1";
 import Upload from './upload';
 // import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { useNavigate } from "react-router-dom";
+import moment from 'moment';
 
 
 const Payment02 = () => {
 
   const bank = localStorage.getItem('bank');
 
-  const idOrder = JSON.parse(localStorage.getItem("detailCar"));
+  const getData = JSON.parse(localStorage.getItem("detailCar"));
 
   const navigate = useNavigate();
 
@@ -45,14 +46,28 @@ const Payment02 = () => {
     alert("copyed")
   }
 
-  // const [value, setValue] = React.useState('some\ntext');
-  // const [copied, setCopied] = React.useState(false);
   
-  // const getCopy = React.useCallback(({target: {innerText}}) => {
-  //   console.log(`Clicked on "${innerText}"!`);
-  // }, [])
-  
-  
+  useEffect(()=> {
+    setCopyText1(getData.total_price)
+  }, [getData])
+
+  useEffect(()=> {
+    setCopyText(() => {
+      switch (bank) {
+        case "BNI":
+          return "123456789";
+        case "Mandiri":
+          return "987654321";
+        case "BCA":
+          return "098765432";
+        default:
+          return "-";
+      }
+    })
+  },[])
+
+
+
 
   return (
     <>
@@ -83,7 +98,7 @@ const Payment02 = () => {
                         }
                       })()}
                 </p>
-                <p className="fs-6">Order ID: {idOrder.id}</p>
+                <p className="fs-6">Order ID: {getData.id}</p>
                 </div>
               <div className="col-lg-6 ">
                 <ul className="menu d-flex justify-content-center">
@@ -102,7 +117,7 @@ const Payment02 = () => {
               <div className="d-flex justify-content-between">
                 <div>
                   <p className="fw-bold">Selesaikan Pembayaran Sebelum</p>
-                  <p>Rabu, 19 Mei 2022 jam 13.00 WIB</p>
+                  <h6> {moment(getData.start_rent_at).format('dddd, DD MMMM YYYY')}</h6>
                 </div>
                 <div>
                   <CountDown duration={24 * 60 * 60 * 1000} />
@@ -140,11 +155,8 @@ const Payment02 = () => {
                   </div>
                   <FormLabel>No. Rekening</FormLabel>
                   <InputGroup className="mb-3">
-                    <FormControl
-                      className="disable"
-                      placeholder="1387653928"
+                    <FormControl disabled                      
                       value={copyTex}
-                      onChange={(e) => setCopyText(e.target.value)}
                     >
                     </FormControl>
                     <Button
@@ -158,11 +170,8 @@ const Payment02 = () => {
                   </InputGroup>
                   <FormLabel>Nominal</FormLabel>
                   <InputGroup className="mb-3">
-                    <FormControl
-                      className="disable"
-                      placeholder="Rp. 3.500.000"
-                      value={copyTex1}
-                      onChange={(e) => setCopyText1(e.target.value)}
+                    <FormControl disabled
+                      value={getData.total_price.toLocaleString('id-ID')}
                     ></FormControl>
                     <Button
                       variant="outline-secondary"
